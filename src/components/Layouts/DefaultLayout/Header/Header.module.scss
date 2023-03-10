@@ -112,10 +112,34 @@ input:not(:placeholder-shown) ~ .search-btn {
     flex-direction: column;
 }
 
+//actions
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.action-btn {
+    color: var(--header-color);
+    font-size: 2.2rem;
+    background-color: transparent;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
 .more-btn {
     font-size: 1.8rem;
     margin-left: 24px;
     background: transparent;
     color: var(--text-color);
     padding: 4px 8px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 12px;
+    cursor: pointer;
 }

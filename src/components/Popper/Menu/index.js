@@ -39,7 +39,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
             // visible={true}
             interactive
             delay={[0, 500]}
-            offset={[8, 12]}
+            offset={[12, 8]}
             hideOnClick={hideOnClick}
             placement="bottom-end"
             render={(attrs) => (

@@ -12,13 +12,22 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
+    faHome,
+    faUser,
+    faCoins,
+    faGear,
+    faSignOut,
+    faHouse,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import ProductItem from '~/components/ProductItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { faProductHunt } from '@fortawesome/free-brands-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -54,14 +63,55 @@ const MENU_ITEMS = [
     },
 ];
 
+const userMenu = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'View Profile',
+        to: '/@hoa',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Settings',
+        to: '/setting',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCoins} />,
+        title: 'Get coins',
+        to: '/coins',
+    },
+
+    ...MENU_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log out',
+        to: '/logout',
+        separate: true,
+    },
+];
+
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
+
+    const currentUser = true;
 
     useEffect(() => {
         setTimeout(() => {
             setSearchResult([]);
         }, 0);
     }, []);
+
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                //handle change language
+                console.log(menuItem);
+
+                break;
+            default:
+                console.log('Error handle!');
+                break;
+        }
+    };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -72,7 +122,7 @@ function Header() {
                 </div>
 
                 {/* search-bar */}
-                <Tippy
+                <HeadlessTippy
                     visible={searchResult.length > 0}
                     interactive
                     render={(attrs) => (
@@ -101,17 +151,51 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </div>
-                </Tippy>
-                <div className={cx('action')}>
-                    <Button text leftIcon={<FontAwesomeIcon icon={faCartShopping} />}>
-                        Basket
-                    </Button>
-                    <Button primary>Log in</Button>
+                </HeadlessTippy>
 
-                    <Menu items={MENU_ITEMS}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                <div className={cx('actions')}>
+                    {currentUser ? (
+                        <>
+                            <Tippy delay={[0, 200]} content="Home" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon="fa-light fa-house" />
+                                    <FontAwesomeIcon icon={faHome} />
+                                </button>
+                            </Tippy>
+
+                            <Tippy content="Products" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon={faProductHunt} />
+                                </button>
+                            </Tippy>
+
+                            <Tippy content="Badget" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon={faCartShopping} />
+                                </button>
+                            </Tippy>
+                        </>
+                    ) : (
+                        <>
+                            <Button text leftIcon={<FontAwesomeIcon icon={faCartShopping} to={'/basket'} />}>
+                                Basket
+                            </Button>
+                            <Button primary>Log in</Button>
+                        </>
+                    )}
+
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                        {currentUser ? (
+                            <img
+                                src="https://i.pinimg.com/236x/6e/8e/9c/6e8e9cb32645250bba9c875636dc882a.jpg"
+                                className={cx('user-avatar')}
+                                alt=""
+                            />
+                        ) : (
+                            <button className={cx('more-btn')}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
             </div>
