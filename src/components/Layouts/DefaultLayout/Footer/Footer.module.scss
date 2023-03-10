@@ -1,0 +1,16 @@
+.wrapper {
+    min-height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    width: var(--default-layout-width-content);
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+h1 {
+    color: #fff;
+}
