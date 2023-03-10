@@ -1,16 +1,130 @@
 .wrapper {
-    min-height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    margin-top: 170px;
+    background: #10375c;
+    padding-top: 100px;
+    padding-left: 135px;
+    padding-right: 135px;
 }
 
 .inner {
     width: var(--default-layout-width-content);
-    height: 100%;
-    background-color: var(--primary-color);
+    max-width: calc(100% - 48px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-h1 {
+.row {
+    display: flex;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #406181;
+    justify-content: space-between;
+}
+
+.column {
+    width: 11.45%;
+}
+.row .column:first-child,
+.row .column:last-child {
+    width: 28.4%;
+}
+
+.row .column:last-child .social-footer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.column .title {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    /* identical to box height, or 175% */
+
+    color: #ffffff;
+}
+
+.row .column .desc,
+.column ul a {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    /* or 175% */
+
+    color: #a9b3bb;
+}
+.row .column:first-child .logo {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+
+.title-logo {
     color: #fff;
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+.row .column:first-child .desc {
+    margin-top: 21px;
+}
+.column ul li a {
+    display: inline-block;
+}
+ul {
+    list-style-type: none;
+}
+.column ul li:first-child a {
+    margin-top: 20px;
+}
+.column ul li:last-child a {
+    margin-bottom: 20px;
+}
+.row .column:last-child .title {
+    margin-bottom: 20px;
+}
+.social-footer a {
+    width: 32px;
+    height: 32px;
+    background: #2e80ce;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.column:last-child .email {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+}
+
+.column:last-child input {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    /* or 175% */
+
+    color: #a9b3bb;
+    border: 1px solid #406181;
+    border-radius: 4px;
+    background: transparent;
+    padding: 10px;
+}
+.copy-right p {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.86;
+    /* identical to box height, or 186% */
+
+    text-align: center;
+
+    color: #aab3ba;
+}
+.copy-right {
+    padding-top: 28px;
+    padding-bottom: 42px;
 }

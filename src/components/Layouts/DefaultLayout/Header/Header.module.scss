@@ -111,3 +111,11 @@ input:not(:placeholder-shown) ~ .search-btn {
     display: flex;
     flex-direction: column;
 }
+
+.more-btn {
+    font-size: 1.8rem;
+    margin-left: 24px;
+    background: transparent;
+    color: var(--text-color);
+    padding: 4px 8px;
+}
