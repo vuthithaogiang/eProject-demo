@@ -8,6 +8,8 @@ const images = {
     introduction1: require('~/assets/images/introduction1.svg').default,
     introduction2: require('~/assets/images/introduction2.svg').default,
     introduction3: require('~/assets/images/introduction3.svg').default,
+    backIcon: require('~/assets/images/back.svg').default,
+    nextIcon: require('~/assets/images/next.svg').default,
 };
 
 export default images;
