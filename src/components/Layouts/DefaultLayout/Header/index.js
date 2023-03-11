@@ -5,10 +5,7 @@ import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCartShopping,
-    faCircleXmark,
     faEllipsisVertical,
-    faMagnifyingGlass,
-    faSpinner,
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
@@ -17,17 +14,14 @@ import {
     faCoins,
     faGear,
     faSignOut,
-    faHouse,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import HeadlessTippy from '@tippyjs/react/headless';
-import { useEffect, useState } from 'react';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import ProductItem from '~/components/ProductItem';
+import Search from '../../Search';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { faProductHunt } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -90,15 +84,7 @@ const userMenu = [
 ];
 
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
-
     const currentUser = true;
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([]);
-        }, 0);
-    }, []);
 
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -116,49 +102,22 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 {/* logo */}
-                <div className={cx('logo')}>
-                    <img src={images.logo} alt="Mirrors." />
-                    <span className={cx('title-logo')}>Mirrors.</span>
-                </div>
+
+                <Link to="/" className={cx('logo-link')}>
+                    <div className={cx('logo')}>
+                        <img src={images.logo} alt="Mirrors." />
+                        <span className={cx('title-logo')}>Mirrors.</span>
+                    </div>
+                </Link>
 
                 {/* search-bar */}
-                <HeadlessTippy
-                    visible={searchResult.length > 0}
-                    interactive
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Result</h4>
-                                <div className="list-products">
-                                    <ProductItem />
-                                    <ProductItem />
-                                    <ProductItem />
-                                    <ProductItem />
-                                </div>
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Search mirrors" spellCheck={false} />
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <button className={cx('loading')}>
-                            <FontAwesomeIcon icon={faSpinner} />
-                        </button>
-                        <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </HeadlessTippy>
+                <Search />
 
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
                             <Tippy delay={[0, 200]} content="Home" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon="fa-light fa-house" />
                                     <FontAwesomeIcon icon={faHome} />
                                 </button>
                             </Tippy>
@@ -172,6 +131,7 @@ function Header() {
                             <Tippy content="Badget" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <FontAwesomeIcon icon={faCartShopping} />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
