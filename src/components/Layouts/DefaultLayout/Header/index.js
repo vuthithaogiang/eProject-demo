@@ -131,15 +131,27 @@ function Header() {
                             <Tippy content="Badget" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <FontAwesomeIcon icon={faCartShopping} />
-                                    <span className={cx('badge')}>12</span>
+                                    {/* <span className={cx('badge')}>12</span> */}
                                 </button>
                             </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button text leftIcon={<FontAwesomeIcon icon={faCartShopping} to={'/basket'} />}>
-                                Basket
-                            </Button>
+                            <div className={cx('list-btn')}>
+                                <Button text className={cx('btn-item')}>
+                                    Home
+                                </Button>
+                                <Button text className={cx('btn-item')}>
+                                    Products
+                                </Button>
+                                <Button text className={cx('btn-item')}>
+                                    Pricing
+                                </Button>
+                                <Button text className={cx('btn-item')}>
+                                    Reviews
+                                </Button>
+                            </div>
+
                             <Button primary>Log in</Button>
                         </>
                     )}

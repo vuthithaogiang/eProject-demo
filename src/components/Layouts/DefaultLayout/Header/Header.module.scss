@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
 
     width: 100%;
     background-color: #fff;
@@ -84,4 +85,37 @@
     border-radius: 50%;
     margin-left: 12px;
     cursor: pointer;
+}
+
+.list-btn {
+    display: flex;
+    padding-right: 8px;
+
+    .btn-item {
+        position: relative;
+        color: #333;
+        font-weight: 600;
+        min-width: 70px;
+        padding: 8px 8px;
+        font-size: 1.6rem;
+        line-height: 28px;
+    }
+}
+
+.btn-item:hover {
+    color: #171100;
+    font-weight: 600;
+    text-shadow: 1px 0 0 currentcolor;
+}
+
+.btn-item:hover ::after {
+    position: absolute;
+    left: 14px;
+    bottom: 6px;
+    content: '';
+    display: block;
+    width: 12px;
+    height: 2px;
+    background: #171100;
+    border-radius: 1px;
 }
