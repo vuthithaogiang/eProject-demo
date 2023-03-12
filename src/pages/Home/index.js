@@ -10,6 +10,7 @@ import Feedback from './Feedback';
 import Feature from './Feature';
 import FeatureBelow from './FeatureBelow';
 import ShoppingNow from './ShoppingNow';
+import OurBlog from './OurBlog';
 
 const cx = classNames.bind(styles);
 
@@ -23,6 +24,7 @@ function Home() {
             <Feature />
             <FeatureBelow />
             <ShoppingNow />
+            <OurBlog />
         </div>
     );
 }

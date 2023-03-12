@@ -22,6 +22,9 @@ const images = {
     product10: require('~/assets/images/product10.jpg'),
     product11: require('~/assets/images/product11.jpg'),
     product12: require('~/assets/images/product12.jpg'),
+    product13: require('~/assets/images/product13.jpg'),
+    product14: require('~/assets/images/product14.jpg'),
+    product15: require('~/assets/images/product15.jpg'),
 
     starIcon: require('~/assets/images/starIcon.svg').default,
     client1: require('~/assets/images/client1.svg').default,
@@ -29,6 +32,9 @@ const images = {
     client3: require('~/assets/images/client3.svg').default,
     client4: require('~/assets/images/client4.svg').default,
     client5: require('~/assets/images/client5.svg').default,
+    howwork1: require('~/assets/images/howwork1.png'),
+    howwork2: require('~/assets/images/howwork2.png'),
+    howwork3: require('~/assets/images/howwork3.png'),
 };
 
 export default images;
