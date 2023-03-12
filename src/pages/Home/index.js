@@ -6,6 +6,8 @@ import Introduction from './Introduction';
 
 import PopularProducts from './PopularProducts';
 import Client from './Client';
+import Feedback from './Feedback';
+import Feature from './Feature';
 
 const cx = classNames.bind(styles);
 
@@ -15,6 +17,8 @@ function Home() {
             <Introduction />
             <Client />
             <PopularProducts />
+            <Feedback />
+            <Feature />
         </div>
     );
 }

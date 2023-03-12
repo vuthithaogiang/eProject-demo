@@ -28,7 +28,7 @@ function PopularProducts() {
         const item = document.querySelector('.list-item');
         style(item, {
             transform: 'translateX(-100%)',
-            transition: 'all 0.3s ease',
+            transition: 'all ease 0.3s',
             marginLeft: '-15px',
         });
     }
@@ -37,7 +37,7 @@ function PopularProducts() {
         const item = document.querySelector('.list-item');
         style(item, {
             transform: 'translateX(-200%)',
-            transition: 'all 0.3s ease',
+            transition: 'all ease 0.3s',
 
             marginLeft: '-15px',
         });

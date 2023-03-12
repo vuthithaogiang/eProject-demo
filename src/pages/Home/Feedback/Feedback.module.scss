@@ -1,0 +1,88 @@
+.wrapper {
+    width: 100%;
+    margin-top: 200px;
+    background-color: #10375c;
+    padding: 96px 0;
+}
+
+.body {
+    width: 1170px;
+    max-width: calc(100% - 48px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-list {
+    display: flex;
+    overflow: hidden;
+    transition: all ease 0.5s;
+}
+
+.feedback-item {
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.title {
+    font-family: 'Sen', sans-serif;
+    margin-top: 18px;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 1.42;
+    color: #f7f7f7;
+}
+.desc {
+    margin-top: 4px;
+    font-size: 1.4rem;
+    line-height: 1.86;
+    color: #bfbcb3;
+}
+
+.dots {
+    margin-top: 28px;
+    display: flex;
+    gap: 6px;
+}
+
+.dot,
+.dot-active {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.dot {
+    background-color: #634700;
+    cursor: pointer;
+}
+
+.dot-active {
+    background-color: #ffb900;
+    cursor: default;
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.content {
+    width: 65%;
+    margin-left: auto;
+}
+
+.open-quotes,
+.close-quotes {
+    color: #f7f7f7;
+}
+
+blockquote {
+    margin-left: 30px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.6rem;
+    line-height: 1.54;
+    color: #fff;
+}
