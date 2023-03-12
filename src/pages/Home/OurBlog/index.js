@@ -22,10 +22,18 @@ function OurBlog({ childen, className }) {
                     <BlogItem src={images.product13} date={dataItem.date} desc={dataItem.desc} />
                     <BlogItem src={images.product14} date={dataItem.date} desc={dataItem.desc} />
                     <BlogItem src={images.product15} date={dataItem.date} desc={dataItem.desc} />
+
+                    <BlogItem src={images.product13} date={dataItem.date} desc={dataItem.desc} />
+                    <BlogItem src={images.product14} date={dataItem.date} desc={dataItem.desc} />
+                    <BlogItem src={images.product15} date={dataItem.date} desc={dataItem.desc} />
+
+                    <BlogItem src={images.product13} date={dataItem.date} desc={dataItem.desc} />
+                    <BlogItem src={images.product14} date={dataItem.date} desc={dataItem.desc} />
+                    <BlogItem src={images.product15} date={dataItem.date} desc={dataItem.desc} />
                 </div>
 
                 <div className={cx('slider-bar')}>
-                    <span></span>
+                    <span className={cx('active')}></span>
                     <span></span>
                     <span></span>
                 </div>

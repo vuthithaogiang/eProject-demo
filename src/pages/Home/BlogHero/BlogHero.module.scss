@@ -1,0 +1,28 @@
+.wrapper {
+    margin-top: 200px;
+    width: 100%;
+    background-image: url('https://images.squarespace-cdn.com/content/v1/5cb9ef147eb88c5caefa30b3/1653634347773-SV1CDI7CFJ64BOKTTPP0/Bedroom+Makeover+-+Her86m2+-_-54.jpg?format=1500w');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 840px;
+}
+
+.body {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 620px;
+    font-weight: 400;
+    font-size: 4.2rem;
+    letter-spacing: 0.18em;
+    line-height: 1.3em;
+    color: #fff;
+    text-align: center;
+    width: 55%;
+}

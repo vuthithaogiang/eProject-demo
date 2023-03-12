@@ -35,6 +35,7 @@ const images = {
     howwork1: require('~/assets/images/howwork1.png'),
     howwork2: require('~/assets/images/howwork2.png'),
     howwork3: require('~/assets/images/howwork3.png'),
+    background: require('~/assets/images/background.jpg'),
 };
 
 export default images;

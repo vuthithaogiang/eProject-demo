@@ -12,6 +12,8 @@ import FeatureBelow from './FeatureBelow';
 import ShoppingNow from './ShoppingNow';
 import OurBlog from './OurBlog';
 import HowItwork from './HowItwork';
+import BlogQuote from './BlogQuote';
+import BlogHero from './BlogHero';
 
 const cx = classNames.bind(styles);
 
@@ -24,9 +26,12 @@ function Home() {
             <Feedback />
             <Feature />
             <FeatureBelow />
-            <ShoppingNow />
+            <BlogHero />
+
             <HowItwork />
+            <BlogQuote title="After silence, that which comes nearest to expressing the inexpressible is music." />
             <OurBlog />
+            <ShoppingNow />
         </div>
     );
 }

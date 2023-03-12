@@ -1,0 +1,29 @@
+.wrapper {
+    margin-top: 200px;
+    width: 100%;
+    background-image: url('https://images.squarespace-cdn.com/content/v1/5cb9ef147eb88c5caefa30b3/1614248061329-CIZC3Y3BZMU894MLG8QJ/Georgia+Adventure+Elopement+Wedding+Photographer+Videographer+6.jpg?format=2500w');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 940px;
+}
+
+.body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-weight: 400;
+
+    font-size: 4.2rem;
+    letter-spacing: 0.18em;
+    line-height: 1.3em;
+    color: #fff;
+    text-align: center;
+    margin-top: 200px;
+    width: 60%;
+    transition: ease 0.8s;
+}
