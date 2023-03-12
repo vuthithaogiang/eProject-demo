@@ -112,6 +112,13 @@
 }
 
 .slider-bar {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
 }
 .slider-bar span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
 }
