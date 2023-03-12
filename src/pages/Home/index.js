@@ -11,6 +11,7 @@ import Feature from './Feature';
 import FeatureBelow from './FeatureBelow';
 import ShoppingNow from './ShoppingNow';
 import OurBlog from './OurBlog';
+import HowItwork from './HowItwork';
 
 const cx = classNames.bind(styles);
 
@@ -24,6 +25,7 @@ function Home() {
             <Feature />
             <FeatureBelow />
             <ShoppingNow />
+            <HowItwork />
             <OurBlog />
         </div>
     );
