@@ -6,9 +6,9 @@ import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
-function ProductItem({ data }) {
+function ProductItem({ data, className }) {
     return (
-        <div className={cx('product-item')}>
+        <div className={cx('product-item', className)}>
             <a href="#!">
                 <img src={data.src} alt="" className={cx('thumb')} />
             </a>

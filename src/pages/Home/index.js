@@ -8,6 +8,8 @@ import PopularProducts from './PopularProducts';
 import Client from './Client';
 import Feedback from './Feedback';
 import Feature from './Feature';
+import FeatureBelow from './FeatureBelow';
+import ShoppingNow from './ShoppingNow';
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +21,8 @@ function Home() {
             <PopularProducts />
             <Feedback />
             <Feature />
+            <FeatureBelow />
+            <ShoppingNow />
         </div>
     );
 }
