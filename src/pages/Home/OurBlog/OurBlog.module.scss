@@ -17,18 +17,15 @@
 }
 .heading {
     font-family: 'Sen';
-
     font-weight: 700;
     font-size: 3.8rem;
     line-height: 1.26;
-
     letter-spacing: -0.02em;
-
     color: #130606;
 }
 
 .desc {
-    width: 448px;
+    width: 38%;
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.75;
@@ -42,12 +39,13 @@
     margin-top: 55px;
     display: flex;
     gap: 30px;
+    margin-left: -30px;
     overflow: hidden;
 }
 
 .item {
     flex-shrink: 0;
-    width: calc(33.33% - 20px);
+    width: calc(33.33% - 36px);
     background-color: #fff;
     border-radius: 16px;
 

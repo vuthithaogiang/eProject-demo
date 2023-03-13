@@ -8,22 +8,24 @@ import ProductItem from '~/pages/Home/PopularProducts/Product/ProductItem';
 const cx = classNames.bind(styles);
 
 function SliderProducts() {
-    const [slideIndex, setSlideIndex] = useState(3);
-    const style = (node, styles) => Object.keys(styles).forEach((key) => (node.style[key] = styles[key]));
+    const [slideIndex, setSlideIndex] = useState(1);
 
     const slideNext = () => {
         if (slideIndex !== dataSliderProducts.length) {
             setSlideIndex(slideIndex + 1);
-
-            //    style (document.querySelector('.active-anim'), {
-
-            //    })
         } else if (slideIndex === dataSliderProducts.length) {
-            setSlideIndex(3);
+            setSlideIndex(1);
         }
     };
 
-    const slidePrev = () => {};
+    const slidePrev = () => {
+        if (slideIndex !== 1) {
+            setSlideIndex(slideIndex - 1);
+        } else if (slideIndex === 3) {
+            setSlideIndex(dataSliderProducts.length);
+        }
+    };
+    console.log(slideIndex);
 
     return (
         <div className={cx('container-slider')}>
@@ -33,7 +35,7 @@ function SliderProducts() {
             </div>
             {dataSliderProducts.map((obj, index) => {
                 return (
-                    <div className={slideIndex >= index + 1 ? cx('slide', 'active-anim') : cx('slide')}>
+                    <div className={slideIndex == index + 1 ? cx('slide', 'active-anim') : cx('slide')}>
                         <ProductItem key={index} data={obj} className={cx('slide-item')} />
                     </div>
                 );
