@@ -40,25 +40,15 @@
     justify-content: space-between;
 }
 
-.back,
-.next {
-    background-color: transparent;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #ffb900;
-
-    cursor: pointer;
-    &:hover {
-        opacity: 0.8;
-    }
-}
-
-.next {
-    background-color: #ffb900;
-    margin-left: 12px;
-}
-
 .list {
     overflow: hidden;
+}
+
+.btn-more {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.86;
+    color: #333;
+    border: none;
 }

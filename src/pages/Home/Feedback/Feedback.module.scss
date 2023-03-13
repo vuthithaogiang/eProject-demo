@@ -6,22 +6,42 @@
 }
 
 .body {
+    position: relative;
     width: 1170px;
     max-width: calc(100% - 48px);
     margin-left: auto;
     margin-right: auto;
+    min-height: 350px;
 }
 
 .feedback-list {
     display: flex;
-    overflow: hidden;
+
+    // overflow: hidden;
     transition: all ease 0.5s;
 }
 
 .feedback-item {
-    width: 100%;
     display: flex;
     flex-shrink: 0;
+    width: 100%;
+    // opacity: 0;
+}
+
+.slide {
+    position: absolute;
+    width: 1170px;
+    display: flex;
+    left: 100%;
+    top: 80px;
+    opacity: 0;
+    flex-shrink: 0;
+    transition: opacity ease-in-out 0.4s;
+    transform: translateX(-100%);
+}
+
+.active-anim {
+    opacity: 1;
 }
 
 .title {
@@ -39,14 +59,14 @@
     color: #bfbcb3;
 }
 
-.dots {
+.container-dots {
     margin-top: 28px;
     display: flex;
     gap: 6px;
 }
 
 .dot,
-.dot-active {
+.dot.active {
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -56,7 +76,7 @@
     cursor: pointer;
 }
 
-.dot-active {
+.dot.active {
     background-color: #ffb900;
     cursor: default;
 }

@@ -13,7 +13,7 @@ function ShoppingNow() {
                     Take control dental health get the personalised care you deserver. Call (541) 772-8846 to schedule
                 </p>
                 <Button rounded text large className={cx('btn-shop')}>
-                    Start Shopping Now
+                    Shopping Now
                 </Button>
             </div>
         </div>

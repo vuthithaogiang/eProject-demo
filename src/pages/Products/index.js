@@ -1,5 +1,13 @@
+import Slider from '~/components/Slider/Slider';
+import SliderProducts from '~/components/SliderProducts/SliderProducts';
 function Products() {
-    return <h1>Products page</h1>;
+    return (
+        <>
+            <Slider />
+
+            <SliderProducts />
+        </>
+    );
 }
 
 export default Products;

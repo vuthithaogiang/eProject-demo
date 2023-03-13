@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
 import styles from './PopularProducts.module.scss';
 import Product from './Product';
-import images from '~/assets/images';
 import { useState } from 'react';
+import Button from '~/components/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -14,15 +16,18 @@ function PopularProducts() {
     // useEffect(() => {
     //     setCount((prev) => prev + 1);
     // }, [count]);
+    if (countNext === numberPages - 1 || countNext < 0) {
+        setCountNext(0);
+    }
 
     const handleNextList = () => {
         setCountNext(countNext + 1);
-
-        if (countNext === numberPages - 1) {
-            setCountNext(1);
-        }
     };
     // console.log(countNext);
+
+    const handlePrevious = () => {
+        setCountNext(countNext - 1);
+    };
 
     if (countNext === 1) {
         const item = document.querySelector('.list-item');
@@ -55,12 +60,15 @@ function PopularProducts() {
                     </div>
 
                     <div className={cx('actions-btn')}>
-                        <button className={cx('back')}>
-                            <img src={images.backIcon} alt="" />
-                        </button>
-                        <button className={cx('next')} onClick={handleNextList}>
-                            <img src={images.nextIcon} alt="" />
-                        </button>
+                        <Button
+                            onClick={handleNextList}
+                            outline
+                            rounded
+                            className={cx('btn-more')}
+                            rightIcon={<FontAwesomeIcon icon={faArrowRight} />}
+                        >
+                            More
+                        </Button>
                     </div>
                 </div>
 
