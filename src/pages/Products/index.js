@@ -9,6 +9,7 @@ import classNames from 'classnames/bind';
 import styles from './Products.module.scss';
 import ListProduct from '~/components/ListProduct';
 import ListBlogItem from '~/components/ListBlogItem';
+import RenderAPI from '~/test/RenderAPI';
 
 const cx = classNames.bind(styles);
 
@@ -62,6 +63,8 @@ function Products() {
             <ListProduct />
 
             <ListBlogItem />
+
+            <RenderAPI />
         </>
     );
 }
