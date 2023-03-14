@@ -25,10 +25,6 @@ function PopularProducts() {
     };
     // console.log(countNext);
 
-    const handlePrevious = () => {
-        setCountNext(countNext - 1);
-    };
-
     if (countNext === 1) {
         const item = document.querySelector('.list-item');
         style(item, {

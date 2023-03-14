@@ -1,13 +1,13 @@
 import classNames from 'classnames/bind';
-import styles from './Product.module.scss';
+import styles from './Item.module.scss';
+import Button from '../Button';
 import images from '~/assets/images';
-import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
-function ProductItem({ data, className }) {
+function Item({ data }) {
     return (
-        <div className={cx('product-item', className)}>
+        <div className={cx('wrapper')}>
             <a href="#!">
                 <img src={data.src} alt="" className={cx('thumb')} />
             </a>
@@ -35,4 +35,4 @@ function ProductItem({ data, className }) {
     );
 }
 
-export default ProductItem;
+export default Item;

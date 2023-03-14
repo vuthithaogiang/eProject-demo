@@ -5,7 +5,7 @@ import styles from './Feedback.module.scss';
 import FeedbackItem from './FeedbackItem';
 
 const cx = classNames.bind(styles);
-const delay = 4000;
+const delay = 3000;
 
 const feedbackContent = [
     {
@@ -56,7 +56,10 @@ function Feedback() {
             <div className={cx('body')}>
                 <div className={cx('feedback-list')}>
                     {feedbackContent.map((data, index) => (
-                        <div className={indexSlide === index + 1 ? cx('slide', 'active-anim') : cx('slide')}>
+                        <div
+                            className={indexSlide === index + 1 ? cx('slide', 'active-anim') : cx('slide')}
+                            key={index}
+                        >
                             <FeedbackItem key={index} content={data} />
                         </div>
                     ))}
@@ -65,6 +68,7 @@ function Feedback() {
                 <div className={cx('container-dots')}>
                     {Array.from({ length: 3 }).map((item, index) => (
                         <div
+                            key={index}
                             onClick={() => moveDote(index + 1)}
                             className={indexSlide === index + 1 ? cx('dot', 'active') : cx('dot')}
                         ></div>

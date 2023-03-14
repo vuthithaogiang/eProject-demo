@@ -47,26 +47,3 @@
 
     gap: 8px;
 }
-
-.back,
-.next {
-    text-align: center;
-    background-color: transparent;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #2e80ce;
-    cursor: pointer;
-}
-
-.next {
-    background-color: #2e80ce;
-}
-
-.list-products {
-    display: flex;
-}
-
-.item {
-    width: 270px;
-}

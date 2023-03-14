@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 const data = {
     title: 'Free mirror fixings when shopping',
-    desc: 'In order to ensure your new addition is secured safely to your walls, it’s important that you remember to obtain the correct fixtures and fittings for your new mirror!',
+    desc: 'Mirrors by MirrorOutlet provide free & fully insured nationwide delivery, ensuring that your mirror arrives safely and quickly.',
 };
 
 const data1 = {
@@ -16,8 +16,8 @@ const data1 = {
 };
 
 const data2 = {
-    title: 'Get in touch with MirrorOutlet today',
-    desc: 'If you would like more information on any of the mirrors that we sell, or if you would like advice on a mirror to best suit your space, get in touch with our team today.',
+    title: 'Get in touch with Mirrors today',
+    desc: 'Mirrors by MirrorOutlet provide free & fully insured nationwide delivery, ensuring that your mirror arrives safely and quickly.',
 };
 
 function HowItwork() {

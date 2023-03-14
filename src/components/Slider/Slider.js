@@ -34,7 +34,7 @@ function Slider() {
             {dataSlider.map((obj, index) => {
                 return (
                     <div key={obj.id} className={slideIndex === index + 1 ? cx('slide', 'active-anim') : cx('slide')}>
-                        <img src={process.env.PUBLIC_URL + `/images/product${index + 1}.jpg`} />
+                        <img src={process.env.PUBLIC_URL + `/images/product${index + 1}.jpg`} alt="" />
                     </div>
                 );
             })}
@@ -44,6 +44,7 @@ function Slider() {
             <div className={cx('container-dots')}>
                 {Array.from({ length: 5 }).map((item, index) => (
                     <div
+                        key={index}
                         onClick={() => moveDote(index + 1)}
                         className={slideIndex === index + 1 ? cx('dot', 'active') : cx('dot')}
                     ></div>

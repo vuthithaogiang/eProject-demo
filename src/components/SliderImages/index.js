@@ -31,10 +31,10 @@ function SliderImages() {
         <div className={cx('container')}>
             <motion.div ref={carousel} className={cx('carousel')} whileTap={{ cursor: 'grabbing' }}>
                 <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className={cx('inner-carousel')}>
-                    {listImagse.map((image) => {
+                    {listImagse.map((image, index) => {
                         return (
-                            <motion.div className={cx('item')}>
-                                <img src={image} />
+                            <motion.div key={index} className={cx('item')}>
+                                <img src={image} alt="" />
                             </motion.div>
                         );
                     })}
