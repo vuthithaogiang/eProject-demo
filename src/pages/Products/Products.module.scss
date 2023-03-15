@@ -1,6 +1,16 @@
-.carousel-container {
-    width: 1170px;
-    max-width: calc(100% - 48px);
-    margin-left: auto;
-    margin-right: auto;
+.wrapper {
+    width: 100%;
+    display: flex;
+}
+
+.container-sidebar {
+    padding: 40px 0 0 90px;
+    width: 20%;
+    background-color: aquamarine;
+}
+
+.content {
+    width: 80%;
+    padding-left: 30px;
+    margin-right: 20px;
 }

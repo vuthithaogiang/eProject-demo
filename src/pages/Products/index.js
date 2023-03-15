@@ -1,15 +1,18 @@
-import Item from '~/components/Item';
-import Slider from '~/components/Slider/Slider';
+//import Item from '~/components/Item';
+//import Slider from '~/components/Slider/Slider';
 import SliderImages from '~/components/SliderImages';
-import SliderProducts from '~/components/SliderProducts/SliderProducts';
+//import SliderProducts from '~/components/SliderProducts/SliderProducts';
 import images from '~/assets/images';
 import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 import classNames from 'classnames/bind';
 import styles from './Products.module.scss';
-import ListProduct from '~/components/ListProduct';
+//import ListProduct from '~/components/ListProduct';
 import ListBlogItem from '~/components/ListBlogItem';
 import RenderAPI from '~/test/RenderAPI';
+import AllProduct from '~/components/AllProduct';
+import Sidebar from './Sidebar';
 
 const cx = classNames.bind(styles);
 
@@ -25,7 +28,7 @@ function Products() {
         superLargeDesktop: {
             // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
-            items: 5,
+            items: 3,
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -42,30 +45,26 @@ function Products() {
     };
 
     return (
-        <>
-            <Slider />
+        <div className={cx('wrapper')}>
+            {/* <Slider />
 
-            <SliderProducts />
+            <SliderProducts /> */}
 
-            <SliderImages />
+            {/* <SliderImages />
 
-            <Carousel containerClass={cx('carousel-container')} responsive={responsive}>
-                <Item data={data} />
-                <Item data={data} />
-                <Item data={data} />
-                <Item data={data} />
-                <Item data={data} />
-                <Item data={data} />
-                <Item data={data} />
-                <Item data={data} />
-            </Carousel>
+            {/* <ListProduct /> */}
 
-            <ListProduct />
+            {/* <ListBlogItem /> */}
 
-            <ListBlogItem />
+            {/* <RenderAPI /> */}
 
-            <RenderAPI />
-        </>
+            <Sidebar />
+
+            <div className={cx('content')}>
+                <AllProduct />
+                <RenderAPI />
+            </div>
+        </div>
     );
 }
 

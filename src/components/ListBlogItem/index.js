@@ -3,6 +3,7 @@ import images from '~/assets/images';
 import classNames from 'classnames/bind';
 import styles from './ListBlogItem.module.scss';
 import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 const cx = classNames.bind(styles);
 const data = {

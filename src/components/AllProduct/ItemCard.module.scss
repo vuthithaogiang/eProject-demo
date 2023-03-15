@@ -1,6 +1,5 @@
-.wrapper {
+.container-item {
     flex: 1;
-    width: 370px;
     background-color: #fff;
     border: 1px solid #e2dfda;
     border-radius: 12px;
@@ -11,6 +10,7 @@
         box-shadow: 0px 18px 36px rgba(0, 0, 0, 0.1);
     }
 }
+
 // .wrapper + .wrapper {
 //     margin-left: 30px;
 // }
@@ -18,12 +18,12 @@
     width: calc(100% + 2px);
     margin: -1px;
     border-radius: 12px 12px 0px 0px;
-    height: 278px;
+    height: 250px;
     object-fit: cover;
 }
 
 .info {
-    padding: 16px 22px 22px;
+    padding: 16px 18px 18px;
 }
 
 .head {
@@ -35,7 +35,7 @@
 .title a {
     padding-right: 6px;
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 1.67;
 
     color: #171100;
@@ -57,15 +57,15 @@
 
 .value {
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.75;
 
     color: #fea31b;
 }
 .desc {
-    margin-top: 6px;
+    margin-top: 4px;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.86;
 
     color: #5f5b53;
@@ -77,7 +77,7 @@
 }
 
 .foot {
-    margin-top: 12px;
+    margin-top: 8px;
 
     display: flex;
     justify-content: space-between;
@@ -86,7 +86,7 @@
 
 .price {
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 1.67;
     color: #171100;
 }

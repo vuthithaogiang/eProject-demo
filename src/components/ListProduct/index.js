@@ -1,8 +1,10 @@
 import classNames from 'classnames/bind';
 import Carousel from 'react-multi-carousel';
+
 import styles from './ListProduct.module.scss';
 import Item from '~/components/Item';
 import images from '~/assets/images';
+import 'react-multi-carousel/lib/styles.css';
 
 const cx = classNames.bind(styles);
 
