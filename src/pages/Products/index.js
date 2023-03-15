@@ -8,7 +8,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 import classNames from 'classnames/bind';
 import styles from './Products.module.scss';
-//import ListProduct from '~/components/ListProduct';
+import ListProduct from '~/components/ListProduct';
 import ListBlogItem from '~/components/ListBlogItem';
 import RenderAPI from '~/test/RenderAPI';
 import AllProduct from '~/components/AllProduct';
@@ -63,6 +63,7 @@ function Products() {
             <div className={cx('content')}>
                 <AllProduct />
                 <RenderAPI />
+                <ListProduct />
             </div>
         </div>
     );

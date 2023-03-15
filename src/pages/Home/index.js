@@ -25,7 +25,10 @@ function Home() {
             <PopularProducts />
             <Feedback />
             <Feature />
+
             <FeatureBelow />
+            {/* <ListProduct /> */}
+
             <BlogHero />
             <HowItwork />
             <BlogQuote title="So one day,I embarked on a new journey of collecting and recording the endless stream of memories and moments of our life. In words, and images." />
