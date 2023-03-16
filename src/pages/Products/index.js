@@ -1,69 +1,79 @@
-//import Item from '~/components/Item';
-//import Slider from '~/components/Slider/Slider';
-import SliderImages from '~/components/SliderImages';
-//import SliderProducts from '~/components/SliderProducts/SliderProducts';
-import images from '~/assets/images';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-
 import classNames from 'classnames/bind';
 import styles from './Products.module.scss';
-import ListProduct from '~/components/ListProduct';
-import ListBlogItem from '~/components/ListBlogItem';
-import RenderAPI from '~/test/RenderAPI';
-import AllProduct from '~/components/AllProduct';
-import Sidebar from './Sidebar';
+
+import AllProduct from '~/components/AllProductPopular';
+import Filter from './Sidebar/Filter';
+import Item from './Item';
+
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const cx = classNames.bind(styles);
 
 function Products() {
-    const data = {
-        src: images.product1,
-        title: 'The mirror vintage  ',
-        rating: 4.5,
-        desc: 'Get the best course, gain knowledge and shine for your future career.',
-        price: 120.75,
-    };
-    const responsive = {
-        superLargeDesktop: {
-            // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 3000 },
-            items: 3,
-        },
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-        },
+    // const responsive = {
+    //     superLargeDesktop: {
+    //         // the naming can be any, depends on you.
+    //         breakpoint: { max: 4000, min: 3000 },
+    //         items: 3,
+    //     },
+    //     desktop: {
+    //         breakpoint: { max: 3000, min: 1024 },
+    //         items: 3,
+    //     },
+    //     tablet: {
+    //         breakpoint: { max: 1024, min: 464 },
+    //         items: 2,
+    //     },
+    //     mobile: {
+    //         breakpoint: { max: 464, min: 0 },
+    //         items: 1,
+    //     },
+    // };
+
+    const [popular, setPopular] = useState([]);
+    const [filered, setFiltered] = useState([]);
+    const [activeGenre, setActiveGenre] = useState(0);
+
+    useEffect(() => {
+        fetchPopular();
+    }, []);
+
+    const fetchPopular = async () => {
+        const data = await fetch('http://localhost:3000/data');
+        const items = await data.json();
+        console.log(items);
+
+        setPopular(items[1].products);
+        setFiltered(items[1].products);
     };
 
     return (
         <div className={cx('wrapper')}>
-            {/* <Slider />
+            {/* side bar */}
+            <div className={cx('container-sidebar')}>
+                <Filter
+                    popular={popular}
+                    setFiltered={setFiltered}
+                    activeGenre={activeGenre}
+                    setActiveGenre={setActiveGenre}
+                />
+            </div>
 
-            <SliderProducts /> */}
-
-            {/* <SliderImages />
-
-            {/* <ListProduct /> */}
-
-            {/* <ListBlogItem /> */}
-
-            {/* <RenderAPI /> */}
-
-            <Sidebar />
+            {/* products */}
 
             <div className={cx('content')}>
+                <div className={cx('all-items')}>
+                    <motion.div layout className={cx('popular-items')}>
+                        <AnimatePresence>
+                            {filered.map((item) => (
+                                <Item key={item.id} data={item} />
+                            ))}
+                        </AnimatePresence>
+                    </motion.div>
+                </div>
+
                 <AllProduct />
-                <RenderAPI />
-                <ListProduct />
             </div>
         </div>
     );

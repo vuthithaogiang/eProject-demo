@@ -118,15 +118,15 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={[0, 200]} content="Home" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <Link to="/" className={cx('action-btn')}>
                                     <FontAwesomeIcon icon={faHome} />
-                                </button>
+                                </Link>
                             </Tippy>
 
                             <Tippy content="Products" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <Link to="/products" className={cx('action-btn')}>
                                     <FontAwesomeIcon icon={faProductHunt} />
-                                </button>
+                                </Link>
                             </Tippy>
 
                             <Tippy content="Badget" placement="bottom">
@@ -139,12 +139,12 @@ function Header() {
                     ) : (
                         <>
                             <div className={cx('list-btn')}>
-                                <Button text className={cx('btn-item')}>
+                                <Link text className={cx('btn-item')} to="/">
                                     Home
-                                </Button>
-                                <Button text className={cx('btn-item')}>
+                                </Link>
+                                <Link text className={cx('btn-item')} to="/products">
                                     Products
-                                </Button>
+                                </Link>
                                 <Button text className={cx('btn-item')}>
                                     Pricing
                                 </Button>

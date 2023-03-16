@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import classNames from 'classnames/bind';
 import styles from './AllProduct.module.scss';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -51,7 +52,7 @@ function Popular() {
 
     return (
         <div className={cx('wrapper')}>
-            <h3>Popular</h3>
+            <Link className={cx('main-title')}>Popular</Link>
             <Carousel
                 containerClass={cx('container-carousel')}
                 slidesToSlide={2}

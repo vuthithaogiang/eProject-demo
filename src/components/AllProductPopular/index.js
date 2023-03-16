@@ -10,7 +10,7 @@ function AllProduct() {
     return (
         <div className={cx('container')}>
             <Popular />
-            <Veggie />
+            {/* <Veggie /> */}
         </div>
     );
 }

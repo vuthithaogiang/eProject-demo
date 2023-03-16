@@ -3,6 +3,7 @@ import styles from './Introduction.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import IntroductionItem from '../IntroductionItem';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
