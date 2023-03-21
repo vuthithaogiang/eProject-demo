@@ -124,7 +124,7 @@ function Header() {
                             </Tippy>
 
                             <Tippy content="Products" placement="bottom">
-                                <Link to="/products" className={cx('action-btn')}>
+                                <Link to="/products/all" className={cx('action-btn')}>
                                     <FontAwesomeIcon icon={faProductHunt} />
                                 </Link>
                             </Tippy>
@@ -142,7 +142,7 @@ function Header() {
                                 <Link text className={cx('btn-item')} to="/">
                                     Home
                                 </Link>
-                                <Link text className={cx('btn-item')} to="/products">
+                                <Link text className={cx('btn-item')} to="/products/all">
                                     Products
                                 </Link>
                                 <Button text className={cx('btn-item')}>

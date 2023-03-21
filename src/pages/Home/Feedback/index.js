@@ -43,12 +43,14 @@ function Feedback() {
     };
 
     useEffect(() => {
-        setTimeout(
+        const timer = setTimeout(
             () => setIndexSlide((prevIndex) => (prevIndex === feedbackContent.length ? 1 : prevIndex + 1)),
             delay,
         );
 
-        return () => {};
+        return () => {
+            clearTimeout(timer);
+        };
     }, [indexSlide]);
 
     return (

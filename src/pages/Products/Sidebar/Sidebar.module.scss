@@ -1,4 +1,10 @@
-.filter-container button {
+.filter-container {
+    position: sticky;
+    top: 0;
+}
+
+.filter-container .item {
+    display: inline-block;
     margin-right: 2rem;
     min-width: 5rem;
     padding: 0.5rem 1rem;
@@ -7,21 +13,43 @@
     color: rgb(65, 96, 168);
     border-radius: 1rem;
     border: 2px solid rgb(65, 96, 168);
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 1.4rem;
     cursor: pointer;
     padding: 5px 7px;
+    text-align: center;
 }
 
-button.active {
+.filter-container .nav {
+    display: inline-block;
+    margin-right: 2rem;
+    min-width: 5rem;
+    padding: 0.5rem 1rem;
+    border: none;
     background: rgb(65, 96, 168);
     color: white;
+    border-radius: 1rem;
+    border: 2px solid rgb(65, 96, 168);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 7px;
+    text-align: center;
+
+    &:active {
+        display: inline-block;
+        border-radius: 1rem;
+        border: 2px solid rgb(65, 96, 168);
+
+        color: #fff;
+        background: rgb(65, 96, 168);
+    }
 }
 
 .filter-container {
     display: grid;
     margin-top: 0.6rem;
 
-    grid-template-columns: repeat(auto-fit, minmax(50px, 100px));
+    grid-template-columns: repeat(auto-fit, minmax(50px, 125px));
     grid-column-gap: 0.8rem;
     grid-row-gap: 0.8rem;
 }

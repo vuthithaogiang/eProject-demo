@@ -9,6 +9,8 @@ import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useState, useEffect, useRef } from 'react';
 import { useDebounce } from '~/hooks';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -25,20 +27,17 @@ function Search() {
 
     const inputRef = useRef();
 
+    const navigate = useNavigate();
     useEffect(() => {
+        if (!searchValue) {
+            return;
+        }
         setLoading(true);
-        fetch(`http://localhost:3000/products`)
+        fetch(`http://localhost:3000/genres?q=${debounce}`)
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    var { name, qty } = data[i];
-                    // console.log(name, qty);
-
-                    if (name.includes(debounce.trim()) && debounce !== '') {
-                        setSearchResult((prev) => [{ name, qty }, ...prev]);
-                    }
-                }
+                console.log(data);
+                setSearchResult(data);
                 setLoading(false);
             })
             .catch(() => {
@@ -65,8 +64,14 @@ function Search() {
         }
     };
 
+    const submitHandle = (e) => {
+        e.preventDefault();
+        console.log('hi!!!!!!!!');
+        navigate('/searched/' + debounce);
+    };
+
     return (
-        <div>
+        <form onSubmit={submitHandle}>
             <HeadlessTippy
                 visible={showResult && searchResult.length > 0}
                 interactive
@@ -75,8 +80,10 @@ function Search() {
                         <PopperWrapper className={cx('list-srollable')}>
                             <h4 className={cx('search-title')}>Result</h4>
                             <div className="list-products">
-                                {searchResult.map((result, index) => (
-                                    <ProductItem key={index} data={result} />
+                                {searchResult.map((result) => (
+                                    <Link to={`/searched/${result.name}`} key={result.id}>
+                                        <ProductItem data={result} />
+                                    </Link>
                                 ))}
                             </div>
                         </PopperWrapper>
@@ -111,7 +118,7 @@ function Search() {
                     </button>
                 </div>
             </HeadlessTippy>
-        </div>
+        </form>
     );
 }
 

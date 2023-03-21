@@ -7,6 +7,7 @@ import Item from './Item';
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -40,12 +41,12 @@ function Products() {
     }, []);
 
     const fetchPopular = async () => {
-        const data = await fetch('http://localhost:3000/data');
+        const data = await fetch('http://localhost:3000/products');
         const items = await data.json();
         console.log(items);
 
-        setPopular(items[1].products);
-        setFiltered(items[1].products);
+        setPopular(items);
+        setFiltered(items);
     };
 
     return (
@@ -67,7 +68,10 @@ function Products() {
                     <motion.div layout className={cx('popular-items')}>
                         <AnimatePresence>
                             {filered.map((item) => (
-                                <Item key={item.id} data={item} />
+                                <Link to={`/detailproduct/${item.id}`} key={item.id}>
+                                    {' '}
+                                    <Item data={item} />
+                                </Link>
                             ))}
                         </AnimatePresence>
                     </motion.div>

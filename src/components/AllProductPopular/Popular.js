@@ -20,13 +20,13 @@ function Popular() {
         if (check) {
             setPopular(JSON.parse(check));
         } else {
-            const api = await fetch('http://localhost:3000/data');
+            const api = await fetch('http://localhost:3000/products');
             const data = await api.json();
 
             console.log(data);
-            localStorage.setItem('product', JSON.stringify(data[1].products));
+            localStorage.setItem('product', JSON.stringify(data));
 
-            console.log(data[1].products);
+            console.log(data);
         }
     };
 

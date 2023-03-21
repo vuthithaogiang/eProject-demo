@@ -6,20 +6,21 @@
 .container-sidebar {
     padding: 40px 0 0 30px;
     width: 20%;
+    height: 400px;
+    overflow: auto;
 }
 
 .content {
     width: 80%;
-    padding-left: 30px;
-    margin-right: 20px;
+    // padding-left: 30px;
 }
 
 .all-items {
-    margin: 5% 5% 0 0;
+    margin: 4% 2% 0 0;
 }
 .popular-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 2rem;
 }
@@ -28,8 +29,8 @@
 
 .wrapper-item {
     flex: 1;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 290px;
+    max-width: 290px;
 
     background-color: #fff;
     border: 1px solid #e2dfda;
