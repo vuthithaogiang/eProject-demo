@@ -14,6 +14,8 @@ import {
     faCoins,
     faGear,
     faSignOut,
+    faBars,
+    faTag,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -24,6 +26,24 @@ import { faProductHunt } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
+
+const MENU_MOBILE = [
+    {
+        icon: <FontAwesomeIcon icon={faHome} />,
+        title: 'Home',
+        to: '/',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faProductHunt} />,
+        title: 'Products',
+        to: '/products/all',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faTag} />,
+        title: 'Pricing',
+        to: '/',
+    },
+];
 
 const MENU_ITEMS = [
     {
@@ -112,7 +132,10 @@ function Header() {
                 </Link>
 
                 {/* search-bar */}
-                <Search />
+                <div className={cx('search-bar')}>
+                    {' '}
+                    <Search />
+                </div>
 
                 <div className={cx('actions')}>
                     {currentUser ? (
@@ -169,6 +192,14 @@ function Header() {
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
                             </button>
                         )}
+                    </Menu>
+                </div>
+
+                <div className={cx('mobile')}>
+                    <Menu items={MENU_MOBILE} onChange={handleMenuChange}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faBars} />
+                        </button>
                     </Menu>
                 </div>
             </div>

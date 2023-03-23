@@ -69,7 +69,6 @@ function Products() {
                         <AnimatePresence>
                             {filered.map((item) => (
                                 <Link to={`/detailproduct/${item.id}`} key={item.id}>
-                                    {' '}
                                     <Item data={item} />
                                 </Link>
                             ))}

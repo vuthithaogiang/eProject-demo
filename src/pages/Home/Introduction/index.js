@@ -3,7 +3,6 @@ import styles from './Introduction.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import IntroductionItem from '../IntroductionItem';
-import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -30,7 +29,7 @@ function Introduction() {
                         colours.
                     </p>
 
-                    <Button className={cx('see-more')} primary>
+                    <Button to={'products/All'} className={cx('see-more')} primary>
                         See Products
                     </Button>
                     <p className={cx('desc')}>Recent engement</p>

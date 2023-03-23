@@ -8,6 +8,7 @@
     z-index: 10;
 
     width: 100%;
+
     background-color: #fff;
     height: var(--default-layout-header-height, 60px);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -118,4 +119,48 @@
     height: 2px;
     background: #171100;
     border-radius: 1px;
+}
+
+//Rezponsive
+@media (min-width: 1001px) {
+    .actions {
+        display: flex;
+    }
+
+    .mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .actions {
+        display: none;
+    }
+    .mobile {
+        display: block;
+        margin-right: 20px;
+        font-size: 24px;
+    }
+    .logo-link {
+        margin-left: 20px;
+    }
+
+    .wrapper {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 618px) {
+    .search-bar {
+        display: none;
+    }
+    .logo-link {
+        .logo {
+            font-size: 24px;
+        }
+
+        .title-logo {
+            font-size: 1.3rem;
+        }
+    }
 }

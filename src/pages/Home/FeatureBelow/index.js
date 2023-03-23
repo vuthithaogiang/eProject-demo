@@ -13,7 +13,7 @@ function FeatureBelow() {
                     <div className={cx('content')}>
                         <h1 className={cx('heading')}>Handmade Wall Mirror</h1>
 
-                        <Button className={cx('btn-view-all')} text>
+                        <Button to={'products/All'} className={cx('btn-view-all')} text>
                             View All Items
                         </Button>
                     </div>

@@ -3,18 +3,28 @@ import styles from './DetailProduct.module.scss';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import AllProduct from '~/components/AllProductPopular';
+
+import React from 'react';
+import Details from './Details';
+
 const cx = classNames.bind(styles);
 
 function DetailProduct() {
     let params = useParams();
+    const [productInfo, setProductInfo] = useState([]);
 
-    const [details, setDetails] = useState([]);
+    // useEffect(() => {
+    //     fetchDetails();
+    // }, [params.name]);
 
     const fetchDetails = async () => {
         const data = await fetch(`http://localhost:3000/products?id=${params.name}`);
         const detailData = await data.json();
+        console.log(detailData);
         console.log(detailData[0]);
-        setDetails(detailData[0]);
+
+        setProductInfo(detailData);
     };
 
     useEffect(() => {
@@ -22,15 +32,16 @@ function DetailProduct() {
     }, [params.name]);
 
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('thumbnails')}>
-                <img src={details.photo} />
+        <>
+            <div className={cx('container')}>
+                {productInfo.map((info, index) => (
+                    <Details key={index} product={info} />
+                ))}
             </div>
-
-            <div className={cx('info')}>
-                <h3>{details.name}</h3>
+            <div className={cx('suggested')}>
+                <AllProduct />
             </div>
-        </div>
+        </>
     );
 }
 

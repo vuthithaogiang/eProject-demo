@@ -21,7 +21,7 @@ function Feature() {
                         More than just a simple mirror, we provide you width the special style mirrors you want.
                     </p>
                     <p className={cx('desc')}>Many styles that you need</p>
-                    <Button rounded className={cx('btn-shop')}>
+                    <Button to={'products/All'} rounded className={cx('btn-shop')}>
                         Shop now
                     </Button>
                 </div>
