@@ -81,7 +81,7 @@ function Search() {
                             <h4 className={cx('search-title')}>Result</h4>
                             <div className="list-products">
                                 {searchResult.map((result) => (
-                                    <Link to={`/searched/${result.name}`} key={result.id}>
+                                    <Link to={`/searched/${result.name}`} key={result.id} className={cx('link-result')}>
                                         <ProductItem data={result} />
                                     </Link>
                                 ))}
