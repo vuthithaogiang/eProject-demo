@@ -138,47 +138,32 @@ function Header() {
                 </div>
 
                 <div className={cx('actions')}>
-                    {currentUser ? (
-                        <>
-                            <Tippy delay={[0, 200]} content="Home" placement="bottom">
-                                <Link to="/" className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faHome} />
-                                </Link>
-                            </Tippy>
+                    <>
+                        <Tippy delay={[0, 200]} content="Home" placement="bottom">
+                            <Link to="/" className={cx('action-btn')}>
+                                <FontAwesomeIcon icon={faHome} />
+                            </Link>
+                        </Tippy>
 
-                            <Tippy content="Products" placement="bottom">
-                                <Link to="/products/all" className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faProductHunt} />
-                                </Link>
-                            </Tippy>
+                        <Tippy content="Products" placement="bottom">
+                            <Link to="/products/all" className={cx('action-btn')}>
+                                <FontAwesomeIcon icon={faProductHunt} />
+                            </Link>
+                        </Tippy>
 
-                            <Tippy content="Badget" placement="bottom">
-                                <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCartShopping} />
-                                    {/* <span className={cx('badge')}>12</span> */}
-                                </button>
-                            </Tippy>
-                        </>
-                    ) : (
-                        <>
-                            <div className={cx('list-btn')}>
-                                <Link text className={cx('btn-item')} to="/">
-                                    Home
-                                </Link>
-                                <Link text className={cx('btn-item')} to="/products/all">
-                                    Products
-                                </Link>
-                                <Button text className={cx('btn-item')}>
-                                    Pricing
-                                </Button>
-                                <Button text className={cx('btn-item')}>
-                                    Reviews
-                                </Button>
-                            </div>
+                        <Tippy content="Badget" placement="bottom">
+                            <button className={cx('action-btn')}>
+                                <FontAwesomeIcon icon={faCartShopping} />
+                                {/* <span className={cx('badge')}>12</span> */}
+                            </button>
+                        </Tippy>
 
-                            <Button primary>Log in</Button>
-                        </>
-                    )}
+                        {!currentUser && (
+                            <Button to={'/login'} primary small className={cx('btn-login')}>
+                                Log in
+                            </Button>
+                        )}
+                    </>
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (

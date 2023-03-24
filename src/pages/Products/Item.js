@@ -14,9 +14,7 @@ function Item({ data }) {
             exit={{ opacity: 0 }}
             className={cx('wrapper-item')}
         >
-            <a href="#!">
-                <img src={data.photo} alt="" className={cx('thumb')} />
-            </a>
+            <img src={data.photo} alt="" className={cx('thumb')} />
 
             <div className={cx('info')}>
                 <div className={cx('head')}>

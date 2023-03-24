@@ -50,3 +50,37 @@
     grid-column-gap: 16px;
     grid-row-gap: 2rem;
 }
+
+//Sort -side bar
+
+.contaner-sorted {
+    margin-top: 10px;
+}
+
+.sorted-selection.sort {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.sorted-tilte {
+    margin-bottom: 10px;
+}
+
+.item-sort {
+    display: inline-flex;
+    min-width: 150px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 5px 7px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: rgb(65, 96, 168);
+    border-radius: 1rem;
+    border: 2px solid rgb(65, 96, 168);
+
+    &:hover {
+        background-color: rgb(65, 96, 168);
+        color: #fff;
+    }
+}

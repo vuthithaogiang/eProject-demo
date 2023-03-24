@@ -10,11 +10,11 @@ function Client() {
                 <div className={cx('row')}>
                     <h1 className={cx('name-logo')}>Mirrors.</h1>
                     <div className={cx('star')}>
-                        <img src={images.starIcon} alt="" />
-                        <img src={images.starIcon} alt="" />
-                        <img src={images.starIcon} alt="" />
-                        <img src={images.starIcon} alt="" />
-                        <img src={images.starIcon} alt="" />
+                        <img src={images.starIcon} alt="star" />
+                        <img src={images.starIcon} alt="star" />
+                        <img src={images.starIcon} alt="star" />
+                        <img src={images.starIcon} alt="star" />
+                        <img src={images.starIcon} alt="star" />
                     </div>
                 </div>
 

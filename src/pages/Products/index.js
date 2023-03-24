@@ -12,26 +12,6 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function Products() {
-    // const responsive = {
-    //     superLargeDesktop: {
-    //         // the naming can be any, depends on you.
-    //         breakpoint: { max: 4000, min: 3000 },
-    //         items: 3,
-    //     },
-    //     desktop: {
-    //         breakpoint: { max: 3000, min: 1024 },
-    //         items: 3,
-    //     },
-    //     tablet: {
-    //         breakpoint: { max: 1024, min: 464 },
-    //         items: 2,
-    //     },
-    //     mobile: {
-    //         breakpoint: { max: 464, min: 0 },
-    //         items: 1,
-    //     },
-    // };
-
     const [popular, setPopular] = useState([]);
     const [filered, setFiltered] = useState([]);
     const [activeGenre, setActiveGenre] = useState(0);
@@ -49,6 +29,52 @@ function Products() {
         setFiltered(items);
     };
 
+    function handleSortPriceAsc() {
+        const sortedDataAsc = [...popular].sort((a, b) => {
+            return a.price - (a.price * a.sale) / 100 > b.price - (b.price * b.sale) / 100 ? 1 : -1;
+        });
+        console.log('asc:', sortedDataAsc);
+        setFiltered(sortedDataAsc);
+    }
+
+    function handleSortPriceDesc() {
+        const sortedDataDesc = [...popular].sort((a, b) => {
+            return a.price - (a.price * a.sale) / 100 < b.price - (b.price * b.sale) / 100 ? 1 : -1;
+        });
+        console.log('desc:', sortedDataDesc);
+        setFiltered(sortedDataDesc);
+    }
+
+    function handleSortRatingAsc() {
+        const sortedDataRatingAsc = [...popular].sort((a, b) => {
+            return a.rating > b.rating ? 1 : -1;
+        });
+        setFiltered(sortedDataRatingAsc);
+    }
+
+    function handleSortRatingDesc() {
+        const sortedDataRatingDesc = [...popular].sort((a, b) => {
+            return a.rating < b.rating ? 1 : -1;
+        });
+        setFiltered(sortedDataRatingDesc);
+    }
+
+    function handleSortNameAsc() {
+        const sortedDataNameAsc = [...popular].sort((a, b) => {
+            return a.name.trim().toLowerCase() > b.name.trim().toLowerCase() ? 1 : -1;
+        });
+
+        setFiltered(sortedDataNameAsc);
+    }
+
+    function handleSortNameDesc() {
+        const sortedDataNameDesc = [...popular].sort((a, b) => {
+            return a.name.trim().toLowerCase() < b.name.trim().toLowerCase() ? 1 : -1;
+        });
+
+        setFiltered(sortedDataNameDesc);
+    }
+
     return (
         <div className={cx('wrapper')}>
             {/* side bar */}
@@ -59,6 +85,42 @@ function Products() {
                     activeGenre={activeGenre}
                     setActiveGenre={setActiveGenre}
                 />
+
+                <div className={cx('contaner-sorted')}>
+                    <h4 className={cx('sorted-tilte')}>Sorted</h4>
+
+                    <div className={cx('sorted-selection')}>
+                        <div className={cx('sort')}>
+                            <span className={cx('item-sort')} onClick={handleSortPriceAsc}>
+                                Price Ascending
+                            </span>
+                            <br />
+                            <span className={cx('item-sort')} onClick={handleSortPriceDesc}>
+                                Price Descending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortRatingAsc}>
+                                Rating Ascending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortRatingDesc}>
+                                Rating Descending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortNameAsc}>
+                                Name Ascending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortNameDesc}>
+                                Name Descending
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* products */}

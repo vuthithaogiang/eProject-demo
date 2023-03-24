@@ -6,7 +6,7 @@
 .container-sidebar {
     padding: 40px 0 0 30px;
     width: 20%;
-    height: 400px;
+
     overflow: auto;
 }
 
@@ -118,4 +118,38 @@
     font-size: 1.6rem;
     line-height: 1.67;
     color: #171100;
+}
+
+//Sort- side bar
+
+.contaner-sorted {
+    margin-top: 10px;
+}
+
+.sorted-selection.sort {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.sorted-tilte {
+    margin-bottom: 10px;
+}
+
+.item-sort {
+    display: inline-flex;
+    min-width: 150px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 5px 7px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: rgb(65, 96, 168);
+    border-radius: 1rem;
+    border: 2px solid rgb(65, 96, 168);
+
+    &:hover {
+        background-color: rgb(65, 96, 168);
+        color: #fff;
+    }
 }

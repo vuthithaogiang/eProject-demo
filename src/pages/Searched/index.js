@@ -24,50 +24,135 @@ function Searched() {
     useEffect(() => {
         getSearched(params.search);
     }, [params.search]);
+
+    function handleSortPriceAsc() {
+        const sortedDataAsc = [...searchedItem].sort((a, b) => {
+            return a.price - (a.price * a.sale) / 100 > b.price - (b.price * b.sale) / 100 ? 1 : -1;
+        });
+        console.log('asc:', sortedDataAsc);
+        setSearchedItem(sortedDataAsc);
+    }
+
+    function handleSortPriceDesc() {
+        const sortedDataDesc = [...searchedItem].sort((a, b) => {
+            return a.price - (a.price * a.sale) / 100 < b.price - (b.price * b.sale) / 100 ? 1 : -1;
+        });
+        console.log('desc:', sortedDataDesc);
+        setSearchedItem(sortedDataDesc);
+    }
+
+    function handleSortRatingAsc() {
+        const sortedDataRatingAsc = [...searchedItem].sort((a, b) => {
+            return a.rating > b.rating ? 1 : -1;
+        });
+        setSearchedItem(sortedDataRatingAsc);
+    }
+
+    function handleSortRatingDesc() {
+        const sortedDataRatingDesc = [...searchedItem].sort((a, b) => {
+            return a.rating < b.rating ? 1 : -1;
+        });
+        setSearchedItem(sortedDataRatingDesc);
+    }
+
+    function handleSortNameAsc() {
+        const sortedDataNameAsc = [...searchedItem].sort((a, b) => {
+            return a.name.trim().toLowerCase() > b.name.trim().toLowerCase() ? 1 : -1;
+        });
+
+        setSearchedItem(sortedDataNameAsc);
+    }
+
+    function handleSortNameDesc() {
+        const sortedDataNameDesc = [...searchedItem].sort((a, b) => {
+            return a.name.trim().toLowerCase() < b.name.trim().toLowerCase() ? 1 : -1;
+        });
+
+        setSearchedItem(sortedDataNameDesc);
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container-sidebar')}>
-                <h4 className={cx('title')}>Genres</h4>
-                <div className={cx('filter-container')}>
-                    <Link to={'/searched/mirror'} className={cx('item')}>
-                        All
-                    </Link>
-                    <Link to={'/searched/Vintage'} className={cx('item')}>
-                        Vintage
-                    </Link>
-                    <Link to={'/searched/Retro'} className={cx('item')}>
-                        Retro
-                    </Link>
-                    <Link to={'/searched/Normal'} className={cx('item')}>
-                        Normal
-                    </Link>
-                    <Link to={'/searched/Wood'} className={cx('item')}>
-                        Wood
-                    </Link>
-                    <Link to={'/searched/Handmade'} className={cx('item')}>
-                        Handmade
-                    </Link>
-                    <Link to={'/products/Frame'} className={cx('item')}>
-                        Frame
-                    </Link>
-                    <Link to={'/searched/Frameless'} className={cx('item')}>
-                        Frameless
-                    </Link>
-                    <Link to={'/searched/Gold'} className={cx('item')}>
-                        Gold
-                    </Link>
-                    <Link to={'/searched/Green'} className={cx('item')}>
-                        Green
-                    </Link>
-                    <Link to={'/searched/Black'} className={cx('item')}>
-                        Black
-                    </Link>
-                    <Link to={'/searched/White'} className={cx('item')}>
-                        White
-                    </Link>
-                    <Link to={'/searched/Colorful'} className={cx('item')}>
-                        Coloful
-                    </Link>
+                <>
+                    <h4 className={cx('title')}>Genres</h4>
+                    <div className={cx('filter-container')}>
+                        <Link to={'/searched/mirror'} className={cx('item')}>
+                            All
+                        </Link>
+                        <Link to={'/searched/Vintage'} className={cx('item')}>
+                            Vintage
+                        </Link>
+                        <Link to={'/searched/Retro'} className={cx('item')}>
+                            Retro
+                        </Link>
+                        <Link to={'/searched/Normal'} className={cx('item')}>
+                            Normal
+                        </Link>
+                        <Link to={'/searched/Wood'} className={cx('item')}>
+                            Wood
+                        </Link>
+                        <Link to={'/searched/Handmade'} className={cx('item')}>
+                            Handmade
+                        </Link>
+                        <Link to={'/products/Frame'} className={cx('item')}>
+                            Frame
+                        </Link>
+                        <Link to={'/searched/Frameless'} className={cx('item')}>
+                            Frameless
+                        </Link>
+                        <Link to={'/searched/Gold'} className={cx('item')}>
+                            Gold
+                        </Link>
+                        <Link to={'/searched/Green'} className={cx('item')}>
+                            Green
+                        </Link>
+                        <Link to={'/searched/Black'} className={cx('item')}>
+                            Black
+                        </Link>
+                        <Link to={'/searched/White'} className={cx('item')}>
+                            White
+                        </Link>
+                        <Link to={'/searched/Colorful'} className={cx('item')}>
+                            Coloful
+                        </Link>
+                    </div>
+                </>
+
+                <div className={cx('contaner-sorted')}>
+                    <h4 className={cx('sorted-tilte')}>Sorted</h4>
+
+                    <div className={cx('sorted-selection')}>
+                        <div className={cx('sort')}>
+                            <span className={cx('item-sort')} onClick={handleSortPriceAsc}>
+                                Price Ascending
+                            </span>
+                            <br />
+                            <span className={cx('item-sort')} onClick={handleSortPriceDesc}>
+                                Price Descending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortRatingAsc}>
+                                Rating Ascending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortRatingDesc}>
+                                Rating Descending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortNameAsc}>
+                                Name Ascending
+                            </span>
+                            <br />
+
+                            <span className={cx('item-sort')} onClick={handleSortNameDesc}>
+                                Name Descending
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
 

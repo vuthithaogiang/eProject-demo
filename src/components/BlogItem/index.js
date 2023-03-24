@@ -13,9 +13,7 @@ function BlogItem({ data }) {
             <div className={cx('info')}>
                 <span className={cx('date')}>{data.date}</span>
 
-                <h3 className={cx('title')}>
-                    <a href="#!">{data.desc}</a>
-                </h3>
+                <h3 className={cx('title')}>{data.desc}</h3>
 
                 <Button outline className={cx('btn')}>
                     Read more
