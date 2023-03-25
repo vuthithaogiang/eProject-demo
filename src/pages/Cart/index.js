@@ -17,7 +17,7 @@ function Cart() {
     return (
         <div className={cx('container-cart')}>
             <div className={cx('title')}>
-                <h1>Your cart items</h1>
+                {totalAmount > 0 ? <h1>Your cart items</h1> : <h1>Your cart is Empty</h1>}
             </div>
             <div className={cx('cart-items')}>
                 {PRODUCTS.map((product) => {

@@ -35,17 +35,16 @@
 }
 .container-cart .checkout .action-btns button {
     width: 150px;
-    background-color: #fff;
+    background-color: #eaf6ff;
     padding: 12px 0px;
     color: var(--primary-color);
     font-family: 'Sen', sans-serif;
     font-size: 1.5rem;
     cursor: pointer;
     border-radius: 16px;
-    border: 4px solid #eaf6ff;
 
     &:hover {
-        background-color: #eaf6ff;
+        background-color: #ddd;
     }
 }
 

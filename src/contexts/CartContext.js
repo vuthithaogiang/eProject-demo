@@ -1,20 +1,26 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { PRODUCTS } from '~/data/product';
 
 export const CartContext = createContext();
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('test-cart'));
 
-// const getDefaultCart = () => {
-//     let cart = {};
-//     for (let i = 1; i < PRODUCTS.length + 1; ++i) {
-//         cart[i] = 0;
-//     }
-//     return cart;
-// };
+const getDefaultCartEmpty = () => {
+    let cartEmpty = {};
+    for (let i = 1; i < PRODUCTS.length + 1; ++i) {
+        cartEmpty[i] = 0;
+    }
+    return cartEmpty;
+};
 
 const getDefaultCart = () => {
-    const cart = cartFromLocalStorage;
+    let cart = {};
+
+    if (cartFromLocalStorage === {} || !cartFromLocalStorage) {
+        cart = getDefaultCartEmpty();
+    } else {
+        cart = cartFromLocalStorage;
+    }
     return cart;
 };
 
@@ -47,6 +53,10 @@ export const CartContextProvider = (props) => {
 
     const contextValue = { cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount };
     console.log(cartItems);
+
+    useEffect(() => {
+        localStorage.setItem('test-cart', JSON.stringify(cartItems));
+    }, [cartItems]);
 
     return <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>;
 };
