@@ -1,0 +1,121 @@
+.container-cart {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin-left: 30%;
+    margin-top: 3%;
+    padding-bottom: 30px;
+    padding-right: 15px;
+}
+
+.container-cart .title h1 {
+    margin-top: 20px;
+    margin-left: 60px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+}
+
+.container-cart .checkout {
+    margin-left: 60px;
+}
+
+.container-cart .checkout .action-btns {
+    display: flex;
+    margin: 12px 0 0;
+    gap: 10px;
+}
+.container-cart .checkout p {
+    font-size: 1.4rem;
+}
+.container-cart .checkout .action-btns button {
+    width: 150px;
+    background-color: #fff;
+    padding: 12px 0px;
+    color: var(--primary-color);
+    font-family: 'Sen', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 16px;
+    border: 4px solid #eaf6ff;
+
+    &:hover {
+        background-color: #eaf6ff;
+    }
+}
+
+.cart-item {
+    width: 350px;
+    height: 160px;
+    display: flex;
+
+    align-items: center;
+    // box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    // border-radius: 25px;
+    margin: 20px;
+}
+.cart-item .thumb {
+    width: 35%;
+    height: 100%;
+}
+
+.cart-item .thumb img {
+    width: 100%;
+    height: 80%;
+    margin-top: 15px;
+
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-left: 40px;
+}
+
+.cart-item .description {
+    margin-left: 20%;
+    font-size: 1.3rem;
+}
+
+.cart-item .description .price del {
+    color: red;
+}
+
+.cart-item .description .count-handler {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 76px;
+
+    margin-top: 8px;
+}
+
+.cart-item .description .count-handler input {
+    text-align: center;
+    width: 30px;
+    font-size: 1.2rem;
+}
+
+.cart-item .description .count-handler button {
+    outline: none;
+    background-color: #fff;
+    font-size: 1.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+}
+
+.cart-item .description .count-handler button.sub {
+    padding-left: 6px;
+    padding-right: 7px;
+}
+
+.cart-item .description .count-handler button.plus {
+    padding-left: 6px;
+    padding-right: 6px;
+}

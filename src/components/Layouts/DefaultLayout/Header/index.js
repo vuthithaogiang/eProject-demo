@@ -24,6 +24,9 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { faProductHunt } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
+import { CartContext } from '~/contexts/CartContext';
+import React, { useContext } from 'react';
+import { PRODUCTS } from '~/data/product';
 
 const cx = classNames.bind(styles);
 
@@ -98,7 +101,7 @@ const userMenu = [
     {
         icon: <FontAwesomeIcon icon={faSignOut} />,
         title: 'Log out',
-        to: '/logout',
+        to: '/',
         separate: true,
     },
 ];
@@ -119,6 +122,15 @@ function Header() {
                 break;
         }
     };
+
+    const { cartItems } = useContext(CartContext);
+    let countItem = 0;
+    PRODUCTS.map((product) => {
+        if (cartItems[product.id] !== 0) {
+            countItem += 1;
+        }
+        return countItem;
+    });
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -152,10 +164,10 @@ function Header() {
                         </Tippy>
 
                         <Tippy content="Badget" placement="bottom">
-                            <button className={cx('action-btn')}>
+                            <Link to="/cart" className={cx('action-btn')}>
                                 <FontAwesomeIcon icon={faCartShopping} />
-                                {/* <span className={cx('badge')}>12</span> */}
-                            </button>
+                                {countItem > 0 && <span className={cx('badge')}>{countItem}</span>}
+                            </Link>
                         </Tippy>
 
                         {!currentUser && (
