@@ -1,13 +1,18 @@
 import classNames from 'classnames/bind';
 import styles from './Cart.module.scss';
 import { CartContext } from '~/contexts/CartContext';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function CartItem(props) {
     const { id, name, price, photo, sale } = props.data;
     const { cartItems, addToCart, removeFromCart, updateCartItemCount } = useContext(CartContext);
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems]);
+
     return (
         <div className={cx('cart-item')}>
             <div className={cx('thumb')}>

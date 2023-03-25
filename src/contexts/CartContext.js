@@ -3,11 +3,18 @@ import { PRODUCTS } from '~/data/product';
 
 export const CartContext = createContext();
 
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart'));
+
+// const getDefaultCart = () => {
+//     let cart = {};
+//     for (let i = 1; i < PRODUCTS.length + 1; ++i) {
+//         cart[i] = 0;
+//     }
+//     return cart;
+// };
+
 const getDefaultCart = () => {
-    let cart = {};
-    for (let i = 1; i < PRODUCTS.length + 1; ++i) {
-        cart[i] = 0;
-    }
+    const cart = cartFromLocalStorage;
     return cart;
 };
 
