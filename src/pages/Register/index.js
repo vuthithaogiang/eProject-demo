@@ -154,6 +154,15 @@ function Register() {
                     <div className={cx('register-form')}>
                         <form method="post" action="">
                             <div className={cx('form-group')}>
+                                <label className={cx('form-label')} htmlFor="avatar">
+                                    Avatar
+                                </label>
+                                <input type="file" id="avatar" name="avatar" hidden onChange={handlePreviewAvatar} />
+                                <label htmlFor="avatar">
+                                    <img id="preview" className={cx('avatar-preview')} src={previewAvatar} alt="" />
+                                </label>
+                            </div>
+                            <div className={cx('form-group')}>
                                 <label className={cx('form-label')} htmlFor="username">
                                     Username
                                 </label>
@@ -165,6 +174,25 @@ function Register() {
                                     autoComplete="off"
                                     required
                                 />
+                            </div>
+
+                            <div className={cx('form-group')}>
+                                <label className={cx('form-label')}>Gender</label>
+
+                                <label className={cx('radio')} htmlFor="male">
+                                    <input type="radio" name="gender" id="male" />
+                                    Male
+                                </label>
+
+                                <label className={cx('radio')} htmlFor="female">
+                                    <input type="radio" name="gender" id="female" />
+                                    Female
+                                </label>
+
+                                <label className={cx('radio')} htmlFor="other">
+                                    <input type="radio" name="gender" id="other" />
+                                    Other
+                                </label>
                             </div>
 
                             <div className={cx('form-group')}>
@@ -180,16 +208,6 @@ function Register() {
                                     autoComplete="off"
                                     required
                                 />
-                            </div>
-
-                            <div className={cx('form-group')}>
-                                <label className={cx('form-label')} htmlFor="avatar">
-                                    Avatar
-                                </label>
-                                <input type="file" id="avatar" name="avatar" hidden onChange={handlePreviewAvatar} />
-                                <label htmlFor="avatar">
-                                    <img id="preview" className={cx('avatar-preview')} src={previewAvatar} alt="" />
-                                </label>
                             </div>
 
                             <div className={cx('form-group')}>
