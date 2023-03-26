@@ -3,6 +3,7 @@ import Products from '~/pages/Products';
 import Searched from '~/pages/Searched';
 import DetailProduct from '~/pages/DetailProduct';
 import Cart from '~/pages/Cart';
+import Login from '~/pages/Login';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products/:type', component: Products },
@@ -11,6 +12,10 @@ const publicRoutes = [
     {
         path: '/cart',
         component: Cart,
+    },
+    {
+        path: '/login',
+        component: Login,
     },
 ];
 
