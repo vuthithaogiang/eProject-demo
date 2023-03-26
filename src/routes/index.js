@@ -4,6 +4,7 @@ import Searched from '~/pages/Searched';
 import DetailProduct from '~/pages/DetailProduct';
 import Cart from '~/pages/Cart';
 import Login from '~/pages/Login';
+import Register from '~/pages/Register';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products/:type', component: Products },
@@ -16,6 +17,10 @@ const publicRoutes = [
     {
         path: '/login',
         component: Login,
+    },
+    {
+        path: '/register',
+        component: Register,
     },
 ];
 

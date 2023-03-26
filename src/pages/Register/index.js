@@ -1,25 +1,44 @@
 import classNames from 'classnames/bind';
-import styles from './Login.module.scss';
+import styles from './Register.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
+import React, { useEffect, useState } from 'react';
+
 const cx = classNames.bind(styles);
 
-function Login() {
+function Register() {
+    const [previewAvatar, setPreviewAvartar] = useState(
+        'https://files.fullstack.edu.vn/f8-prod/manual_uploads/htmlcss-pro/avatar-placeholder.webp',
+    );
+
+    useEffect(() => {
+        //clean up
+        return () => {
+            URL.revokeObjectURL(previewAvatar);
+        };
+    }, [previewAvatar]);
+
+    const handlePreviewAvatar = (e) => {
+        const file = e.target.files[0];
+
+        file.preview = URL.createObjectURL(file);
+        setPreviewAvartar(file.preview);
+    };
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('container-login')}>
+            <div className={cx('container-register')}>
                 <div className={cx('img-block')}>
                     <img
-                        className={cx('image')}
                         src="https://images.squarespace-cdn.com/content/v1/5cb9ef147eb88c5caefa30b3/1661623027751-V1IYRWTYQE5LJUBB1KE9/78+Work+From+Home+-+Her86m2+-+13.jpg?format=1500w"
                         alt=""
+                        className={cx('image')}
                     />
-
                     <div className={cx('trend')}>
                         <div className={cx('row')}>
                             <strong className={cx('value')}>4,000+</strong>
                             <img className={cx('icon')} alt="" src={images.trend} />
                         </div>
+
                         <p className={cx('desc')}>By avarage for customers in San Francisco, CA</p>
 
                         <div className={cx('separate')}></div>
@@ -130,9 +149,9 @@ function Login() {
                     </div>
                 </div>
 
-                <div className={cx('form-block')}>
-                    <h2 className={cx('sub-title')}>Welcome to Mirrors.</h2>
-                    <div className={cx('login-form')}>
+                <div className={cx('register-block')}>
+                    <h2 className={cx('sub-title')}>Register</h2>
+                    <div className={cx('register-form')}>
                         <form method="post" action="">
                             <div className={cx('form-group')}>
                                 <label className={cx('form-label')} htmlFor="username">
@@ -146,6 +165,31 @@ function Login() {
                                     autoComplete="off"
                                     required
                                 />
+                            </div>
+
+                            <div className={cx('form-group')}>
+                                <label htmlFor="email" className={cx('form-label')}>
+                                    Email
+                                </label>
+
+                                <input
+                                    className={cx('form-input')}
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    autoComplete="off"
+                                    required
+                                />
+                            </div>
+
+                            <div className={cx('form-group')}>
+                                <label className={cx('form-label')} htmlFor="avatar">
+                                    Avatar
+                                </label>
+                                <input type="file" id="avatar" name="avatar" hidden onChange={handlePreviewAvatar} />
+                                <label htmlFor="avatar">
+                                    <img id="preview" className={cx('avatar-preview')} src={previewAvatar} alt="" />
+                                </label>
                             </div>
 
                             <div className={cx('form-group')}>
@@ -163,22 +207,29 @@ function Login() {
                             </div>
 
                             <div className={cx('form-group')}>
-                                <div className={cx('checkbox')}>
-                                    <input type="checkbox" name="remember" id="remember" hidden />
-                                    <label htmlFor="remember"> Remember me</label>
-                                </div>
+                                <label className={cx('form-label')} htmlFor="confirm-password">
+                                    Confirm password
+                                </label>
+                                <input
+                                    className={cx('form-input')}
+                                    type="password"
+                                    id="confirm-password"
+                                    name="confirm-password"
+                                    autoComplete="off"
+                                    required
+                                />
                             </div>
 
                             <div className={cx('form-group')}>
                                 <button className={cx('btn')} type="submit" onClick={(e) => e.preventDefault()}>
-                                    Login
+                                    Sign Up
                                 </button>
                             </div>
                         </form>
                     </div>
-                    <span>Haven't Account? </span> <br />
-                    <Button to="/register" text className={cx('sign-up')}>
-                        Sign Up
+                    <span>Already Registered? </span> <br />
+                    <Button to="/login" text className={cx('log-in')}>
+                        Log In
                     </Button>
                 </div>
             </div>
@@ -186,4 +237,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;
