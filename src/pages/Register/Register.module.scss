@@ -248,10 +248,31 @@
     border-radius: 50%;
     background-color: var(--primary-color);
     position: absolute;
-    top: 6px;
-    left: 3.5px;
+    top: 6.2px;
+    left: 3.6px;
 }
 
 .radio [type='radio'] {
     display: none;
+}
+
+.form-group .instructions {
+    font-size: 1rem;
+    color: red;
+    padding: 0.25rem;
+    margin-top: 5px;
+}
+
+.instructions > svg {
+    margin-right: 0.5rem;
+}
+
+.offscreen {
+    display: none;
+}
+
+.success-login {
+    color: #1f3bb1;
+    text-decoration: underline;
+    font-size: 2rem;
 }
