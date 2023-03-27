@@ -107,6 +107,7 @@ function Register() {
 
             if (handleNewUser.data.length !== 0) {
                 console.log('Username Taken');
+
                 alert('Username Taken. Please Log in');
             } else {
                 const response = await axios.post(
@@ -121,6 +122,7 @@ function Register() {
 
                 console.log(JSON.stringify(response));
                 setSuccess(true);
+                alert('Sign Up sucessfully!');
             }
         } catch (error) {
             if (!error?.response) {

@@ -2,9 +2,67 @@ import classNames from 'classnames/bind';
 import styles from './Login.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import AuthContext from '~/contexts/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import axios from '~/api/axios';
+
 const cx = classNames.bind(styles);
 
 function Login() {
+    const { setAuth } = useContext(AuthContext);
+    const usernameRef = useRef();
+    const errorRef = useRef();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [success, setSuccess] = useState(false);
+
+    useEffect(() => {
+        usernameRef.current.focus();
+    }, []);
+
+    // useEffect(() => {
+    //     setErrorMessage('');
+    // }, [username, password]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.get(`/auth?username=${username}&password=${password}`);
+            console.log(response.data);
+            console.log(response.data[0]);
+
+            if (typeof response.data[0] === 'undefined') {
+                setErrorMessage('Error username or password!');
+            } else {
+                setErrorMessage('');
+                setAuth(response.data[0]);
+                setSuccess(true);
+            }
+
+            setUsername('');
+            setPassword('');
+            // setSuccess(true);
+        } catch (error) {
+            if (!error?.response) {
+                setErrorMessage('No Server Response');
+            } else if (error.response?.status === 400) {
+                setErrorMessage('Missing username or password');
+            }
+
+            errorRef.current.focus();
+        }
+    };
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (success === true) {
+            navigate('/');
+        }
+    }, [success]);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container-login')}>
@@ -133,18 +191,21 @@ function Login() {
                 <div className={cx('form-block')}>
                     <h2 className={cx('sub-title')}>Welcome to Mirrors.</h2>
                     <div className={cx('login-form')}>
-                        <form method="post" action="">
+                        <form onSubmit={handleSubmit}>
                             <div className={cx('form-group')}>
                                 <label className={cx('form-label')} htmlFor="username">
                                     Username
                                 </label>
                                 <input
                                     className={cx('form-input')}
+                                    ref={usernameRef}
                                     type="text"
                                     id="username"
                                     name="username"
                                     autoComplete="off"
                                     required
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    value={username}
                                 />
                             </div>
 
@@ -157,8 +218,9 @@ function Login() {
                                     type="password"
                                     id="password"
                                     name="password"
-                                    autoComplete="off"
                                     required
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={password}
                                 />
                             </div>
 
@@ -169,10 +231,16 @@ function Login() {
                                 </div>
                             </div>
 
+                            <p
+                                ref={errorRef}
+                                className={errorMessage ? cx('error-message') : cx('offscreen')}
+                                aria-live="assertive"
+                            >
+                                {errorMessage}
+                            </p>
+
                             <div className={cx('form-group')}>
-                                <button className={cx('btn')} type="submit" onClick={(e) => e.preventDefault()}>
-                                    Login
-                                </button>
+                                <button className={cx('btn')}>Log In</button>
                             </div>
                         </form>
                     </div>

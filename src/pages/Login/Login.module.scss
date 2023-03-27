@@ -240,3 +240,13 @@
     border-bottom: 3px solid var(--primary-color);
     rotate: -45deg;
 }
+
+.error-message {
+    padding-top: 8px;
+    color: red;
+    font-size: 1rem;
+}
+
+.offscreen {
+    display: none;
+}
