@@ -102,7 +102,7 @@ function Register() {
         }
 
         try {
-            const handleNewUser = await axios.get(`/auth?username=${username}&password=${password}&email=${email}`);
+            const handleNewUser = await axios.get(`/auth?username=${username}&password=${password}`);
             console.log(handleNewUser.data);
 
             if (handleNewUser.data.length !== 0) {

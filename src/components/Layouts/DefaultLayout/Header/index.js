@@ -27,6 +27,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '~/contexts/CartContext';
 import React, { useContext } from 'react';
 import { PRODUCTS } from '~/data/product';
+import AuthContext from '~/contexts/AuthProvider';
 
 const cx = classNames.bind(styles);
 
@@ -45,6 +46,12 @@ const MENU_MOBILE = [
         icon: <FontAwesomeIcon icon={faTag} />,
         title: 'Pricing',
         to: '/',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log out',
+        to: '/',
+        separate: true,
     },
 ];
 
@@ -74,10 +81,6 @@ const MENU_ITEMS = [
         title: 'Feedback and Help',
         to: '/feedback',
     },
-    {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard shortcuts',
-    },
 ];
 
 const userMenu = [
@@ -102,14 +105,13 @@ const userMenu = [
     {
         icon: <FontAwesomeIcon icon={faSignOut} />,
         title: 'Log out',
-        to: '/',
+        type: 'logout',
         separate: true,
     },
 ];
 
 function Header() {
-    const currentUser = false;
-
+    const { auth, currentAccount, setCurrentAccount } = useContext(AuthContext);
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
@@ -117,13 +119,26 @@ function Header() {
                 console.log(menuItem);
 
                 break;
+
             default:
+                setCurrentAccount(false);
                 console.log('Error handle!');
                 break;
         }
     };
 
     const { cartItems } = useContext(CartContext);
+
+    console.log(currentAccount);
+
+    let avatarUrl;
+
+    if (auth.picture !== '') {
+        avatarUrl = auth.picture;
+    } else {
+        avatarUrl = 'https://files.fullstack.edu.vn/f8-prod/manual_uploads/htmlcss-pro/avatar-placeholder.webp';
+    }
+
     let countItem = 0;
     PRODUCTS.map((product) => {
         if (cartItems[product.id] !== 0) {
@@ -131,6 +146,7 @@ function Header() {
         }
         return countItem;
     });
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -170,26 +186,30 @@ function Header() {
                             </Link>
                         </Tippy>
 
-                        {!currentUser && (
+                        {currentAccount === false && (
                             <Button to={'/login'} primary small className={cx('btn-login')}>
                                 Log in
                             </Button>
                         )}
                     </>
 
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
-                        {currentUser ? (
-                            <img
-                                src="https://i.pinimg.com/236x/6e/8e/9c/6e8e9cb32645250bba9c875636dc882a.jpg"
-                                className={cx('user-avatar')}
-                                alt=""
-                            />
-                        ) : (
-                            <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
-                            </button>
-                        )}
-                    </Menu>
+                    {currentAccount && (
+                        <>
+                            <Menu items={userMenu} onChange={handleMenuChange}>
+                                <img src={avatarUrl} className={cx('user-avatar')} alt="" />
+                            </Menu>
+                        </>
+                    )}
+
+                    {currentAccount === false && (
+                        <>
+                            <Menu items={userMenu} onChange={handleMenuChange}>
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            </Menu>
+                        </>
+                    )}
                 </div>
 
                 <div className={cx('mobile')}>
