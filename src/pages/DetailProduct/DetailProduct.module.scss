@@ -351,3 +351,178 @@
         width: 100%;
     }
 }
+
+.row-item {
+    display: flex;
+
+    justify-items: center;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 8px;
+}
+.row-item-larger p {
+    max-width: 80%;
+    margin-left: 30px;
+}
+.row-item-larger {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.row-item-larger .icon {
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+//Shipping
+
+.wrapper-shipping {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper-shipping .heading {
+    font-weight: 400;
+    letter-spacing: 0.35px;
+    font-size: 2.2rem;
+    line-height: 24px;
+    font-family: 'Sen', sans-serif;
+}
+.wrapper-shipping .desc {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 18px;
+
+    color: #992153;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.estimated-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0 20px 0;
+    margin-top: 9px;
+}
+
+.estimated-container .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.estimated-container .item-icon svg {
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.estimated-container .item-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    background-color: #ddd;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.estimated-container .item-icon.second {
+    position: relative;
+}
+
+.estimated-container .item-icon.second::before,
+.estimated-container .item-icon.second::after {
+    display: inline-block;
+    content: '';
+    width: 390px;
+    height: 2px;
+    background-color: rgba(34, 34, 34, 0.15);
+    position: absolute;
+    top: 50%;
+    border-radius: 6px;
+}
+.estimated-container .item-icon.second::before {
+    left: calc(100% + 6px);
+    padding-right: 9px;
+}
+.estimated-container .item-icon.second::after {
+    right: calc(100% + 6px);
+}
+
+.estimated-container .item .date {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    line-height: 18px;
+    padding-top: 5px;
+}
+
+.estimated-container .item .status {
+    font-weight: 400;
+    font-size: 1.3rem;
+    border-bottom: 1px dotted #535353;
+}
+
+.cost-to-ship .note p {
+    color: #222;
+    font-size: 1.2rem;
+    font-family: 'Sen', sans-serif;
+    padding: 8px 12px;
+}
+
+.cost-to-ship .note {
+    background-color: #ddebe3;
+    opacity: 0.9;
+    width: fit-content;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.return {
+    width: 47%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.instruction {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.instruction img {
+    width: 38px;
+    height: 35px;
+    object-fit: cover;
+}
+
+.instruction div {
+    width: 45%;
+    font-size: 1.3rem;
+}
+
+.instruction div strong {
+    color: var(--primary-color);
+}
+
+.instruction div a {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+// Typpy
+.content-inner {
+    font-size: 1.1rem;
+    max-width: 300px;
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-bottom: 8px;
+    padding-right: 6px;
+}

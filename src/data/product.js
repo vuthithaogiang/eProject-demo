@@ -62,7 +62,7 @@ export const PRODUCTS = [
             },
             {
                 title: 'Shipping',
-                content: ['pro tips'],
+                content: [''],
             },
         ],
         colors: ['#d8d5ba'],

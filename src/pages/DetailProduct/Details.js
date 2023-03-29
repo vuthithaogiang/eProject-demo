@@ -1,12 +1,14 @@
-import { faTag } from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo, faClock, faGift, faHand, faTag, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-
+import images from '~/assets/images';
 import { CartContext } from '~/contexts/CartContext';
 import styles from './DetailProduct.module.scss';
+import HeadlessTippy from '@tippyjs/react/headless';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 
 const cx = classNames.bind(styles);
 
@@ -71,6 +73,51 @@ function Details({ product }) {
 
     const { addToCart, cartItems } = useContext(CartContext);
     const cartItemAmount = cartItems[product.id];
+
+    Date.prototype.monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ];
+
+    Date.prototype.getMonthName = function () {
+        return this.monthNames[this.getMonth()];
+    };
+    Date.prototype.getShortMonthName = function () {
+        return this.getMonthName().substr(0, 3);
+    };
+
+    // usage:
+    var d = new Date();
+    // alert(d.getMonthName()); // "October"
+    // alert(d.getShortMonthName());
+
+    const dayCurrent = new Date().getDate();
+    //today
+    var day = new Date(`${d.getShortMonthName()} ${dayCurrent}, 2023`);
+
+    //next ? day
+    var nextDay = new Date(day);
+    nextDay.setDate(day.getDate() + 1);
+
+    //5 day later
+    var fiveDay = new Date(day);
+    fiveDay.setDate(day.getDate() + 5);
+
+    var monthLater = new Date(nextDay);
+    var monthLaterFive = new Date(fiveDay);
+
+    monthLater.setDate(nextDay.getDate() + 30);
+    monthLaterFive.setDate(fiveDay.getDate() + 30);
 
     return (
         <React.Fragment>
@@ -186,9 +233,185 @@ function Details({ product }) {
                         key={info.title}
                         className={cx('info-container', `${info.title === infoTitle ? 'active' : ''}`)}
                     >
-                        {info.content.map((content, index) => (
-                            <p key={index}>{content}</p>
-                        ))}
+                        {info.title === 'Product details' &&
+                            info.content.map((content, index) => <p key={index}>{content}</p>)}
+
+                        {info.title === 'Highlights' && (
+                            <>
+                                <div className={cx('row-item')}>
+                                    <FontAwesomeIcon icon={faHand} />
+                                    <p>{info.content.madeby}</p>
+                                </div>
+                                <div className={cx('row-item')}>
+                                    <FontAwesomeIcon icon={faClock} />
+                                    <p>{info.content.type}</p>
+                                </div>
+                                <div className={cx('row-item-larger')}>
+                                    <FontAwesomeIcon icon={faCircleInfo} className={cx('icon')} />
+                                    <p>{info.content.materials}</p>
+                                </div>
+                            </>
+                        )}
+
+                        {info.title === 'Shipping' && (
+                            <div className={cx('wrapper-shipping')}>
+                                <div className={cx('estimated-arrival')}>
+                                    <HeadlessTippy
+                                        interactive
+                                        render={(attrs) => (
+                                            <PopperWrapper>
+                                                <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                    If you order today, this is the{' '}
+                                                    <strong>estimated delivery date</strong> and is based on the
+                                                    seller's processing time and location, carrier transit time, and
+                                                    your shipping address. Keep in mind: shipping carrier delays or
+                                                    placing an order on a weekend or holiday may push this date.
+                                                </div>
+                                            </PopperWrapper>
+                                        )}
+                                        placement="bottom-start"
+                                    >
+                                        <h4 className={cx('desc')}>Estimated arrival</h4>
+                                    </HeadlessTippy>
+                                    <h3 className={cx('heading')}>
+                                        {monthLater.getDate()} {monthLater.getMonthName()}-{monthLaterFive.getDate()}{' '}
+                                        {monthLaterFive.getMonthName()}{' '}
+                                    </h3>
+
+                                    <div className={cx('estimated-container')}>
+                                        <HeadlessTippy
+                                            interactive
+                                            render={(attrs) => (
+                                                <PopperWrapper>
+                                                    <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                        After you place your order, EncorePrintSociety will take 1-4
+                                                        business days to prepare it for shipment.
+                                                    </div>
+                                                </PopperWrapper>
+                                            )}
+                                            placement="bottom"
+                                        >
+                                            <div className={cx('item')}>
+                                                <div className={cx('item-icon')}>
+                                                    <FontAwesomeIcon icon={faHand} />
+                                                </div>
+                                                <div className={cx('date')}>
+                                                    {day.getDate()} {day.getMonthName()}{' '}
+                                                </div>
+                                                <div className={cx('status')}>Order placed</div>
+                                            </div>
+                                        </HeadlessTippy>
+
+                                        <HeadlessTippy
+                                            interactive
+                                            render={(attrs) => (
+                                                <PopperWrapper>
+                                                    <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                        EncorePrintSociety puts your order in the mail.
+                                                    </div>
+                                                </PopperWrapper>
+                                            )}
+                                            placement="bottom"
+                                        >
+                                            <div className={cx('item')}>
+                                                <div className={cx('item-icon', 'second')}>
+                                                    <FontAwesomeIcon icon={faTruck} />
+                                                </div>
+                                                <div className={cx('date')}>
+                                                    {nextDay.getDate()} {nextDay.getMonthName()} - {fiveDay.getDate()}{' '}
+                                                    {fiveDay.getMonthName()}
+                                                </div>
+                                                <div className={cx('status')}>Order ships</div>
+                                            </div>
+                                        </HeadlessTippy>
+
+                                        <HeadlessTippy
+                                            interactive
+                                            render={(attrs) => (
+                                                <PopperWrapper>
+                                                    <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                        Estimated to arrive at your doorstep {monthLater.getDate()}{' '}
+                                                        {monthLater.getMonthName()}-{monthLaterFive.getDate()}{' '}
+                                                        {monthLaterFive.getMonthName()}!
+                                                    </div>
+                                                </PopperWrapper>
+                                            )}
+                                            placement="bottom"
+                                        >
+                                            <div className={cx('item')}>
+                                                <div className={cx('item-icon')}>
+                                                    <FontAwesomeIcon icon={faGift} />
+                                                </div>
+                                                <div className={cx('date')}>
+                                                    {monthLater.getDate()} {monthLater.getMonthName()} -
+                                                    {monthLaterFive.getDate()} {monthLaterFive.getMonthName()}
+                                                </div>
+                                                <div className={cx('status')}>Delivered!</div>
+                                            </div>
+                                        </HeadlessTippy>
+                                    </div>
+                                </div>
+
+                                <div className={cx('cost-to-ship')}>
+                                    <h4 className={cx('desc')}>Cost to ship</h4>
+                                    <h3 className={cx('heading')}>$113.3</h3>
+                                    <div className={cx('note')}>
+                                        <p>
+                                            Mirror offsets carbon emissions from shipping and packaging on this
+                                            purchase.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className={cx('return')}>
+                                    <div className={cx('return-item')}>
+                                        <h4 className={cx('desc')}>Return & exchanges</h4>
+                                        <HeadlessTippy
+                                            interactive
+                                            render={(attrs) => (
+                                                <PopperWrapper>
+                                                    <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                        Buyers are responsible for return shipping costs. If the item is
+                                                        not returned in its original condition, the buyer is responsible
+                                                        for any loss in value.
+                                                    </div>
+                                                </PopperWrapper>
+                                            )}
+                                            placement="bottom-start"
+                                        >
+                                            <h3 className={cx('heading')}>Accepted</h3>
+                                        </HeadlessTippy>
+                                    </div>
+
+                                    <div className={cx('return-item')}>
+                                        <h4 className={cx('desc')}>Return & exchange window</h4>
+                                        <HeadlessTippy
+                                            interactive
+                                            render={(attrs) => (
+                                                <PopperWrapper>
+                                                    <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                        You have 30 days from item delivery to ship this item back to
+                                                        the seller.
+                                                    </div>
+                                                </PopperWrapper>
+                                            )}
+                                            placement="bottom-end"
+                                        >
+                                            <h3 className={cx('heading')}>30 days</h3>
+                                        </HeadlessTippy>
+                                    </div>
+                                </div>
+
+                                <div className={cx('instruction')}>
+                                    <img src={images.hand} alt="" className={cx('hand-icon')} />
+                                    <div>
+                                        <strong> Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if
+                                        something goes wrong with an order, we've got your back for all eligible
+                                        purchases -- <Link to="">see program terms</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 ))}
             </section>

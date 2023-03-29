@@ -109,7 +109,7 @@ const userMenu = [
 ];
 
 function Header() {
-    const { auth, currentAccount, setCurrentAccount } = useContext(AuthContext);
+    const { auth, currentAccount } = useContext(AuthContext);
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
