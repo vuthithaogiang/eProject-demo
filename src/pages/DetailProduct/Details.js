@@ -162,7 +162,7 @@ function Details({ product }) {
                             Add to Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}
                         </button>
 
-                        <Link to={''} className={cx('buy-now')}>
+                        <Link to={'/cart'} className={cx('buy-now')}>
                             Buy now
                         </Link>
                     </div>

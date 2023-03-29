@@ -5,6 +5,7 @@ import DetailProduct from '~/pages/DetailProduct';
 import Cart from '~/pages/Cart';
 import Login from '~/pages/Login';
 import Register from '~/pages/Register';
+import FeedbackForm from '~/pages/Feedback';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products/:type', component: Products },
@@ -21,6 +22,10 @@ const publicRoutes = [
     {
         path: '/register',
         component: Register,
+    },
+    {
+        path: '/feedback',
+        component: FeedbackForm,
     },
 ];
 

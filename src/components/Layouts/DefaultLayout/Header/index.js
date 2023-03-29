@@ -8,7 +8,6 @@ import {
     faEllipsisVertical,
     faEarthAsia,
     faCircleQuestion,
-    faKeyboard,
     faHome,
     faUser,
     faCoins,
@@ -105,7 +104,6 @@ const userMenu = [
     {
         icon: <FontAwesomeIcon icon={faSignOut} />,
         title: 'Log out',
-        type: 'logout',
         separate: true,
     },
 ];
@@ -119,9 +117,12 @@ function Header() {
                 console.log(menuItem);
 
                 break;
+            // case 'logout':
+            //     setCurrentAccount(false);
+            //     break;
 
             default:
-                setCurrentAccount(false);
+                // setCurrentAccount(false);
                 console.log('Error handle!');
                 break;
         }

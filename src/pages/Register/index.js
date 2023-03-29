@@ -102,7 +102,7 @@ function Register() {
         }
 
         try {
-            const handleNewUser = await axios.get(`/auth?username=${username}&password=${password}`);
+            const handleNewUser = await axios.get(`/auth?username=${username}&password=${password}&email=${email}`);
             console.log(handleNewUser.data);
 
             if (handleNewUser.data.length !== 0) {
@@ -122,6 +122,10 @@ function Register() {
 
                 console.log(JSON.stringify(response));
                 setSuccess(true);
+                setUsername('');
+                setEmail('');
+                setPassword('');
+                setMatchPassword('');
                 alert('Sign Up sucessfully!');
             }
         } catch (error) {
@@ -286,6 +290,7 @@ function Register() {
                                             autoComplete="off"
                                             required
                                             onChange={(e) => setUsername(e.target.value)}
+                                            value={username}
                                             aria-invalid={validName ? 'false' : 'true'}
                                             aria-describedby="uidnote"
                                             onFocus={() => setUsernameFocus(true)}
@@ -342,6 +347,7 @@ function Register() {
                                             autoComplete="off"
                                             required
                                             onChange={(e) => setEmail(e.target.value)}
+                                            value={email}
                                             aria-invalid={validEmail ? 'false' : 'true'}
                                             aria-describedby="eidnote"
                                             onFocus={() => setEmailFocus(true)}
@@ -393,6 +399,7 @@ function Register() {
                                             autoComplete="off"
                                             required
                                             onChange={(e) => setPassword(e.target.value)}
+                                            value={password}
                                             aria-invalid={validPassword ? 'false' : 'true'}
                                             aria-describedby="pidnote"
                                             onFocus={() => setPasswordFocus(true)}
@@ -428,6 +435,7 @@ function Register() {
                                             autoComplete="off"
                                             required
                                             onChange={(e) => setMatchPassword(e.target.value)}
+                                            value={matchPassword}
                                             aria-invalid={validMatch ? 'false' : 'true'}
                                             aria-describedby="cpidnote"
                                             onFocus={() => setMatchFocus(true)}

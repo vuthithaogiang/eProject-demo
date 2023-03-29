@@ -1,0 +1,258 @@
+.wrapper {
+    background-color: #f9f9fb;
+    padding-bottom: 40px;
+    margin-bottom: -100px;
+}
+.container-feedback {
+    padding-top: 32px;
+    padding-bottom: 60px;
+}
+
+:root {
+    --primary-color-feedback: #10375c;
+
+    --secondary-color: #ed9a9e;
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading h1 {
+    color: #050545;
+    font-weight: 900;
+    font-size: 3.2rem;
+}
+
+.heading p {
+    margin-top: 16px;
+    color: #8d8d9f;
+}
+
+.container {
+    display: flex;
+    width: 900px;
+    max-width: calc(100% - 48px);
+    margin: 60px auto 0;
+    padding: 6px;
+    background-color: #fff;
+}
+
+.contact-info {
+    position: relative;
+    flex-shrink: 0;
+    width: 330px;
+    padding: 24px 30px 30px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: var(--primary-color-feedback);
+    overflow: hidden;
+}
+
+.contact-info h2 {
+    font-weight: 600;
+    font-size: 2.2rem;
+}
+
+.contact-info .desc {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #e6f0ff;
+}
+
+.contact-info .info-item {
+    margin-top: 36px;
+}
+
+.contact-info .info-item .icon {
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.contact-info .info-item .value {
+    margin-left: 8px;
+    font-size: 1.3rem;
+    color: #e6f0ff;
+}
+
+.socials {
+    display: flex;
+    column-gap: 10px;
+    margin-top: 110px;
+}
+.socials .item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+
+    &:hover {
+        background-color: var(--secondary-color);
+    }
+}
+
+.circle {
+    position: absolute;
+    right: 55px;
+    bottom: 60px;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #7955f3;
+    opacity: 0.9;
+}
+
+.circle-large {
+    position: absolute;
+    border-radius: 50%;
+    right: -110px;
+    bottom: -110px;
+    z-index: 0;
+    width: 250px;
+    height: 250px;
+    opacity: 1;
+    background-color: var(--secondary-color);
+}
+
+//form
+
+.contact-form {
+    flex-grow: 1;
+    padding: 28px 32px;
+}
+
+.form-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 30px;
+}
+.form-group {
+    flex-grow: 1;
+}
+
+.form-group:focus-within .form-label:not(.large) {
+    color: #5f42b6;
+}
+.form-group:focus-within .form-input {
+    border-color: #5f42b6;
+}
+
+.form-label,
+.form-input {
+    display: block;
+}
+
+.form-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #131434;
+}
+.form-input,
+.form-textarea {
+    width: 100%;
+    border-bottom: 2px solid #e3e3e9;
+    padding: 8px 0 14px 0;
+    color: #0d0d3b;
+}
+
+.form-error {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin-top: 4px;
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #bebfc9;
+    font-size: 1.5rem;
+    font-family: 'Sen', sans-serif;
+}
+
+.form-label.large {
+    font-size: 1.3rem;
+}
+
+// Radio
+
+.radio-group {
+    display: flex;
+    margin-top: 16px;
+}
+
+.radio-btn {
+    display: inline-block;
+}
+
+.radio-btn + .radio-btn {
+    margin-left: 24px;
+}
+.radio-btn label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 1.3rem;
+    color: #474669;
+}
+
+.radio-btn label::before,
+.radio-btn label::after {
+    content: '';
+    display: inline-block;
+}
+
+.radio-btn label::before {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 2px solid #a7a7b6;
+}
+.radio-btn [type='radio']:checked + label::before {
+    border-color: #5b32dc;
+    background-color: #5b32dc;
+}
+
+.radio-btn [type='radio'] {
+    display: none;
+}
+.radio-btn [type='radio']:checked + label::after {
+    position: absolute;
+    top: 6px;
+    left: 2px;
+    width: 9px;
+    height: 5px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    rotate: -45deg;
+}
+.form-textarea {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #e3e3e9;
+    resize: none;
+}
+
+.submit-btn {
+    min-width: 160px;
+    height: 50px;
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--primary-color-feedback);
+    border-radius: 10px;
+    margin-left: auto;
+    outline: none;
+    font-weight: 600;
+    font-size: 1.3rem;
+    &:hover {
+        opacity: 0.8;
+    }
+}

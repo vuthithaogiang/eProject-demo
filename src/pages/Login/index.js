@@ -191,7 +191,7 @@ function Login() {
                 <div className={cx('form-block')}>
                     <h2 className={cx('sub-title')}>Welcome to Mirrors.</h2>
                     <div className={cx('login-form')}>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} autoComplete="off">
                             <div className={cx('form-group')}>
                                 <label className={cx('form-label')} htmlFor="username">
                                     Username
