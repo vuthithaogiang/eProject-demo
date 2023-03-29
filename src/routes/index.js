@@ -6,6 +6,7 @@ import Cart from '~/pages/Cart';
 import Login from '~/pages/Login';
 import Register from '~/pages/Register';
 import FeedbackForm from '~/pages/Feedback';
+import PurchaseProtection from '~/pages/PurchaseProtection';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products/:type', component: Products },
@@ -26,6 +27,10 @@ const publicRoutes = [
     {
         path: '/feedback',
         component: FeedbackForm,
+    },
+    {
+        path: '/purchase-protection',
+        component: PurchaseProtection,
     },
 ];
 

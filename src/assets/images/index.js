@@ -44,6 +44,7 @@ const images = {
     blog3: require('~/assets/images/blog3.jpg'),
     trend: require('~/assets/images/trend.svg').default,
     hand: require('~/assets/images/hand.svg').default,
+    desc: require('~/assets/images/desc.png'),
 };
 
 export default images;

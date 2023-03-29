@@ -407,7 +407,7 @@ function Details({ product }) {
                                     <div>
                                         <strong> Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if
                                         something goes wrong with an order, we've got your back for all eligible
-                                        purchases -- <Link to="">see program terms</Link>
+                                        purchases -- <Link to="/purchase-protection">see program terms</Link>
                                     </div>
                                 </div>
                             </div>
