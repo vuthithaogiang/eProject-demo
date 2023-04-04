@@ -8,9 +8,7 @@ const cx = classNames.bind(styles);
 function ItemCard({ name, desc, coverPhoto, rating, price }) {
     return (
         <div className={cx('container-item')}>
-            <a href="#!">
-                <img src={coverPhoto} alt="" className={cx('thumb')} />
-            </a>
+            <img src={coverPhoto} alt="" className={cx('thumb')} />
 
             <div className={cx('info')}>
                 <div className={cx('head')}>

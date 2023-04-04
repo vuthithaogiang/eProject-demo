@@ -307,7 +307,7 @@ function Details({ product }) {
                                             render={(attrs) => (
                                                 <PopperWrapper>
                                                     <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
-                                                        EncorePrintSociety puts your order in the mail.
+                                                        Encore Print Society puts your order in the mail.
                                                     </div>
                                                 </PopperWrapper>
                                             )}
@@ -357,7 +357,7 @@ function Details({ product }) {
                                     <h3 className={cx('heading')}>$113.3</h3>
                                     <div className={cx('note')}>
                                         <p>
-                                            Mirror offsets carbon emissions from shipping and packaging on this
+                                            Mirrors offsets carbon emissions from shipping and packaging on this
                                             purchase.
                                         </p>
                                     </div>
@@ -405,9 +405,9 @@ function Details({ product }) {
                                 <div className={cx('instruction')}>
                                     <img src={images.hand} alt="" className={cx('hand-icon')} />
                                     <div>
-                                        <strong> Etsy Purchase Protection:</strong> Shop confidently on Etsy knowing if
-                                        something goes wrong with an order, we've got your back for all eligible
-                                        purchases -- <Link to="/purchase-protection">see program terms</Link>
+                                        <strong> Mirrors Purchase Protection:</strong> Shop confidently on Mirrors
+                                        knowing if something goes wrong with an order, we've got your back for all
+                                        eligible purchases -- <Link to="/purchase-protection">see program terms</Link>
                                     </div>
                                 </div>
                             </div>
