@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import React, { useState } from 'react';
 
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
@@ -62,11 +63,45 @@ monthLater.setDate(nextDay.getDate() + 30);
 monthLaterFive.setDate(fiveDay.getDate() + 30);
 
 function Cart() {
+    const [paidFor, setPaidFor] = useState(false);
+    const [error, setError] = useState(null);
     const { cartItems, getTotalCartAmount } = useContext(CartContext);
     const totalAmount = getTotalCartAmount();
     let amountValue = totalAmount + 113;
 
     const navigate = useNavigate();
+
+    const getProductIds = () => {
+        const cartFromLocalStorage = JSON.parse(localStorage.getItem('test-cart'));
+        let totalProduct = [];
+
+        for (const item in cartFromLocalStorage) {
+            if (cartFromLocalStorage[item] > 0) {
+                totalProduct.push({
+                    p_id: Number(item),
+                    qty: cartFromLocalStorage[item],
+                });
+            }
+        }
+        console.log(totalProduct);
+
+        return totalProduct;
+    };
+
+    const handleApprove = (orderId, orderDetails) => {
+        setPaidFor(true);
+        console.log(orderDetails);
+
+        localStorage.setItem('invoice', JSON.stringify(orderDetails));
+    };
+
+    if (paidFor) {
+        alert('Thank you for your purchar!');
+    }
+
+    if (error) {
+        alert(error);
+    }
 
     return (
         <>
@@ -177,10 +212,34 @@ function Cart() {
                                             ],
                                         });
                                     }}
-                                    onApprove={(data, actions) => {
-                                        return actions.order.capture().then(function (details) {
-                                            alert('Transaction completed by ' + details.payer.name.given_name);
-                                        });
+                                    onApprove={async (data, actions) => {
+                                        const order = await actions.order.capture();
+                                        // console.log(order);
+
+                                        // console.log(order.purchase_units[0]);
+
+                                        const orderDetails = {
+                                            id: order.id,
+                                            order_date: order.create_time,
+                                            estimated_date: `${monthLater.getDate()} ${monthLater.getMonthName()} - ${monthLaterFive.getDate()} ${monthLaterFive.getMonthName()} `,
+                                            customer_name: order.purchase_units[0].shipping.name.full_name,
+                                            email_adress: order.payer.email_address,
+                                            address: order.purchase_units[0].shipping.address,
+                                            status: order.status,
+                                            amount: order.purchase_units[0].amount,
+                                            product_ids: getProductIds(),
+                                        };
+
+                                        //console.log(orderDetails);
+
+                                        handleApprove(data.orderID, orderDetails);
+                                    }}
+                                    onCancel={() => {
+                                        // message cancel
+                                    }}
+                                    onError={(err) => {
+                                        setError(err);
+                                        console.error('Paypal checkout on Error!', err);
                                     }}
                                 />
                             </PayPalScriptProvider>
