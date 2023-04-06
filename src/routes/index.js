@@ -7,6 +7,7 @@ import Login from '~/pages/Login';
 import Register from '~/pages/Register';
 import FeedbackForm from '~/pages/Feedback';
 import PurchaseProtection from '~/pages/PurchaseProtection';
+import OrderDetails from '~/pages/OrderDetails';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products/:type', component: Products },
@@ -31,6 +32,11 @@ const publicRoutes = [
     {
         path: '/purchase-protection',
         component: PurchaseProtection,
+    },
+
+    {
+        path: '/order-details/:id',
+        component: OrderDetails,
     },
 ];
 

@@ -27,6 +27,8 @@ const getDefaultCart = () => {
 export const CartContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
+    const [paySuccess, setPaySuccess] = useState(false);
+
     const getTotalCartAmount = () => {
         let totalAmount = 0;
 
@@ -51,8 +53,17 @@ export const CartContextProvider = (props) => {
         setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
     };
 
-    const contextValue = { cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount };
-    console.log(cartItems);
+    const contextValue = {
+        cartItems,
+        addToCart,
+        removeFromCart,
+        updateCartItemCount,
+        getTotalCartAmount,
+        getDefaultCartEmpty,
+        paySuccess,
+        setPaySuccess,
+    };
+    console.log(paySuccess);
 
     useEffect(() => {
         localStorage.setItem('test-cart', JSON.stringify(cartItems));

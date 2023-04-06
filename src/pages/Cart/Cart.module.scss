@@ -235,3 +235,29 @@
     margin-right: auto;
     font-weight: 500;
 }
+
+.pay-success h1 {
+    font-size: 1.5rem;
+    font-family: 'Sen', sans-serif;
+    font-weight: 500;
+}
+
+.pay-success a {
+    display: inline-block;
+    color: #222;
+    font-size: 1.4rem;
+    border: 1px solid var(--primary-color);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+.pay-success a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.wrapper-pay {
+    position: relative;
+    z-index: 7;
+}

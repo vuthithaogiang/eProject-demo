@@ -13,11 +13,6 @@ const cx = classNames.bind(styles);
 function DetailProduct() {
     let params = useParams();
     const [productInfo, setProductInfo] = useState([]);
-
-    // useEffect(() => {
-    //     fetchDetails();
-    // }, [params.name]);
-
     const fetchDetails = async () => {
         const data = await fetch(`http://localhost:3000/products?id=${params.name}`);
         const detailData = await data.json();
