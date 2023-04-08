@@ -42,9 +42,9 @@ const MENU_MOBILE = [
         to: '/products/all',
     },
     {
-        icon: <FontAwesomeIcon icon={faTag} />,
-        title: 'Pricing',
-        to: '/',
+        icon: <FontAwesomeIcon icon={faCartShopping} />,
+        title: 'Budget',
+        to: '/cart',
     },
     {
         icon: <FontAwesomeIcon icon={faSignOut} />,
