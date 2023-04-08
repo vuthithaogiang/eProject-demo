@@ -168,8 +168,11 @@
 
 .wrapper-order-details .navbar-list a {
     color: #222;
-    text-decoration: underline;
+
     font-weight: 400;
+    display: inline-flex;
+    //padding-bottom: 2px;
+    border-bottom: 1px solid #666;
 }
 
 .wrapper-order-details .thanks-quote {
@@ -188,7 +191,7 @@
 
 .wrapper-order-details .thanks-quote svg {
     font-size: 2rem;
-    color: #f99f53;
+    color: #ff9060;
 }
 .wrapper-order-details .thanks-quote p {
     font-size: 1.3rem;
