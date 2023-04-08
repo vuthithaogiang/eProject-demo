@@ -53,3 +53,39 @@
         border-radius: 12px;
     }
 }
+@media (max-width: 1020px) {
+    .images img {
+        width: 180px;
+    }
+}
+
+@media (max-width: 920px) {
+    .images img {
+        flex-shrink: 0;
+        margin-bottom: 10px;
+    }
+
+    .images {
+        margin-top: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .wrapper {
+        margin-top: 35px;
+        padding-top: 10px;
+        margin-bottom: -150px;
+    }
+
+    h1.name-logo {
+        font-size: 2rem;
+    }
+
+    .star img {
+        width: 13px;
+    }
+
+    .desc {
+        font-size: 1.3rem;
+    }
+}
