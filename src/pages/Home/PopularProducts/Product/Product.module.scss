@@ -1,12 +1,13 @@
 .wrapper {
     margin-top: 55px;
     display: flex;
+    width: 100%;
     gap: 30px;
-    // overflow: hidden;
+    //     overflow: hidden;
 }
 
 .item {
-    display: flex;
+    display: inline-flex;
 }
 
 .product-item {
@@ -91,6 +92,12 @@
     line-height: 1.67;
     color: #171100;
 }
+
+.price del {
+    color: red;
+    font-size: 1.4rem;
+    margin-left: 6px;
+}
 .line-clamp {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -100,3 +107,12 @@
 }
 
 //
+@media (max-width: 1220px) {
+    .product-item {
+        min-width: 40%;
+    }
+
+    .product-item + .product-item {
+        margin-left: 20px;
+    }
+}

@@ -10,10 +10,11 @@ function ShoppingNow() {
             <div className={cx('body')}>
                 <h1 className={cx('heading')}>Always welcoming new customers</h1>
                 <p className={cx('desc')}>
-                    Take control dental health get the personalised care you deserver. Call (541) 772-8846 to schedule
+                    Decorate your home by contacting us to advise on the most suitable mirror. Call (541) 772-8846 to
+                    schedule or Send Feedback.
                 </p>
-                <Button to={'products/All'} rounded text large className={cx('btn-shop')}>
-                    Shopping Now
+                <Button to={'/feedback'} rounded text large className={cx('btn-shop')}>
+                    Send Feedback
                 </Button>
             </div>
         </div>

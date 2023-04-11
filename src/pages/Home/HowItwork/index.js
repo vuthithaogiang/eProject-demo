@@ -27,7 +27,7 @@ function HowItwork() {
                 <div className={cx('content')}>
                     <h1 className={cx('heading')}>How it works</h1>
                     <p className={cx('desc')}>
-                        Exceptional dental care for all ages. your greate smile begins with a greate dentis
+                        Take care of your home, your great satisfaction is the driving force for us to develop
                     </p>
                 </div>
 

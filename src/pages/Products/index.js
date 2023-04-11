@@ -75,6 +75,14 @@ function Products() {
         setFiltered(sortedDataNameDesc);
     }
 
+    function handleSale() {
+        const productSale = [...popular].filter((a) => {
+            return a.sale > 0;
+        });
+
+        setFiltered(productSale);
+    }
+
     return (
         <div className={cx('wrapper')}>
             {/* side bar */}
@@ -91,6 +99,9 @@ function Products() {
 
                     <div className={cx('sorted-selection')}>
                         <div className={cx('sort')}>
+                            <span className={cx('item-sort')} onClick={handleSale}>
+                                Sale off
+                            </span>
                             <span className={cx('item-sort')} onClick={handleSortPriceAsc}>
                                 Price Ascending
                             </span>

@@ -2,15 +2,15 @@ import classNames from 'classnames/bind';
 import styles from './Item.module.scss';
 import Button from '../Button';
 import images from '~/assets/images';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function Item({ data }) {
+    const navigate = useNavigate();
     return (
         <div className={cx('wrapper')}>
-            <a href="#!">
-                <img src={data.src} alt="" className={cx('thumb')} />
-            </a>
+            <img onClick={() => navigate('/detailproduct/12')} src={data.src} alt="" className={cx('thumb')} />
 
             <div className={cx('info')}>
                 <div className={cx('head')}>

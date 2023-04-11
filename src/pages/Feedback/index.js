@@ -132,7 +132,7 @@ function FeedbackForm() {
                             <span className={cx('icon')}>
                                 <FontAwesomeIcon icon={faPhone} />
                             </span>
-                            <span className={cx('value')}>+84123456789</span>
+                            <span className={cx('value')}>(541) 772-8846 </span>
                         </div>
 
                         <div className={cx('info-item')}>

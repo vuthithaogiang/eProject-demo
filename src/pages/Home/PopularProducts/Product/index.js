@@ -8,10 +8,11 @@ const cx = classNames.bind(styles);
 const data = [
     {
         src: images.product1,
-        title: 'The mirror vintage  ',
+        title: 'The Artus Mirror',
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career.',
-        price: 120.75,
+        price: 480,
+        sale: 10,
     },
     {
         src: images.product2,
@@ -19,6 +20,7 @@ const data = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career. Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
     {
         src: images.product3,
@@ -26,6 +28,7 @@ const data = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
 ];
 
@@ -36,6 +39,7 @@ const data1 = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
     {
         src: images.product5,
@@ -43,6 +47,7 @@ const data1 = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career. Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
     {
         src: images.product6,
@@ -50,6 +55,7 @@ const data1 = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
 ];
 
@@ -60,6 +66,7 @@ const data2 = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
     {
         src: images.product8,
@@ -67,6 +74,7 @@ const data2 = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career. Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
     {
         src: images.product9,
@@ -74,6 +82,7 @@ const data2 = [
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career.',
         price: 120.75,
+        sale: 0,
     },
 ];
 

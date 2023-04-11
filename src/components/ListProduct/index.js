@@ -11,10 +11,10 @@ const cx = classNames.bind(styles);
 function ListProduct() {
     const data = {
         src: images.product18,
-        title: 'The mirror vintage  ',
+        title: 'The Wall Mirror',
         rating: 4.5,
         desc: 'Get the best course, gain knowledge and shine for your future career.',
-        price: 120.75,
+        price: 400,
     };
     const data1 = {
         src: images.product16,

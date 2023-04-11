@@ -2,17 +2,24 @@ import classNames from 'classnames/bind';
 import styles from './Feature.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function Feature() {
+    const navigate = useNavigate();
     return (
         <div className={cx('wrapper')}>
             <div className={cx('body')}>
                 <div className={cx('body-top')}>
                     <div className={cx('images')}>
-                        <img className={cx('lower')} src={images.product5} alt="" />
-                        <img src={images.product11} alt="" />
+                        <img
+                            onClick={() => navigate('/detailproduct/1')}
+                            className={cx('lower')}
+                            src={images.product5}
+                            alt=""
+                        />
+                        <img src={images.product11} alt="" onClick={() => navigate('/detailproduct/25')} />
                     </div>
                 </div>
                 <div className={cx('content')}>

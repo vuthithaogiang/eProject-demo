@@ -31,7 +31,9 @@ function Item({ data }) {
                 <p className={cx('desc')}>{data.desc}</p>
 
                 <div className={cx('foot')}>
-                    <span className={cx('price')}>${data.price}</span>
+                    <span className={cx('price')}>
+                        ${data.price - (data.price * data.sale) / 100} {data.sale > 0 && <del>${data.price}</del>}
+                    </span>
                     <Button rounded>Shop Now</Button>
                 </div>
             </div>

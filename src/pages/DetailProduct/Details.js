@@ -171,7 +171,8 @@ function Details({ product }) {
                     </p>
 
                     <p className={cx('product-price')}>
-                        {Math.round(product.price - (product.price * product.sale) / 100)}$ <del>{product.price}$</del>
+                        ${Math.round(product.price - (product.price * product.sale) / 100)}{' '}
+                        {product.sale > 0 && <del>${product.price}</del>}
                     </p>
 
                     <p className={cx('small-desc')}>

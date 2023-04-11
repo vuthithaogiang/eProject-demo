@@ -71,6 +71,14 @@ function Searched() {
         setSearchedItem(sortedDataNameDesc);
     }
 
+    function handleSaleProduct() {
+        const productSale = [...searchedItem].filter((a) => {
+            return a.sale > 0;
+        });
+
+        setSearchedItem(productSale);
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container-sidebar')}>
@@ -124,6 +132,9 @@ function Searched() {
 
                     <div className={cx('sorted-selection')}>
                         <div className={cx('sort')}>
+                            <span className={cx('item-sort')} onClick={handleSaleProduct}>
+                                Sale off
+                            </span>
                             <span className={cx('item-sort')} onClick={handleSortPriceAsc}>
                                 Price Ascending
                             </span>

@@ -54,7 +54,16 @@ function Footer() {
                     {/* Column 13*/}
 
                     <div className={cx('column')}>
-                        <h3 className={cx('title')}>Support</h3>
+                        <h3 className={cx('title')}>Products</h3>
+                        <ul className={cx('list')}>
+                            <li>
+                                <a href="#!">Sale</a>
+                            </li>
+                            <li>
+                                <a href="#!">News Arrival</a>
+                            </li>
+                        </ul>
+                        {/* <h3 className={cx('title')}>Support</h3>
                         <ul className={cx('list')}>
                             <li>
                                 <a href="#!">Help center</a>
@@ -62,16 +71,7 @@ function Footer() {
                             <li>
                                 <a href="#!">Help center</a>
                             </li>
-                        </ul>
-                        <h3 className={cx('title')}>Support</h3>
-                        <ul className={cx('list')}>
-                            <li>
-                                <a href="#!">Help center</a>
-                            </li>
-                            <li>
-                                <a href="#!">Help center</a>
-                            </li>
-                        </ul>
+                        </ul> */}
                     </div>
                     {/* Column 4 */}
 
