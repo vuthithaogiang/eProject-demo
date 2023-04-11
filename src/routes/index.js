@@ -8,6 +8,7 @@ import Register from '~/pages/Register';
 import FeedbackForm from '~/pages/Feedback';
 import PurchaseProtection from '~/pages/PurchaseProtection';
 import OrderDetails from '~/pages/OrderDetails';
+import Blog from '~/pages/Blog';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products/:type', component: Products },
@@ -37,6 +38,10 @@ const publicRoutes = [
     {
         path: '/order-details/:id',
         component: OrderDetails,
+    },
+    {
+        path: '/blog/item',
+        component: Blog,
     },
 ];
 

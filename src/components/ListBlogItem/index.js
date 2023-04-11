@@ -14,7 +14,7 @@ const data = {
 const data1 = {
     src: images.blog1,
     date: '22 November 2022',
-    desc: 'Description is here.....',
+    desc: 'Guest Bedroom Makeover ',
 };
 const data2 = {
     src: images.product17,
