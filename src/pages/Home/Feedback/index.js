@@ -31,7 +31,7 @@ const feedbackContent = [
         desc: 'Customer of Mirrors',
 
         blockquote:
-            'I am sure you will love it more in real life than in photos , as photos can’t capture the whole beauty of this mirror!',
+            'I am sure you will love it more in real life than in photo, as photo can’t capture the whole beauty of this mirror!',
     },
 ];
 

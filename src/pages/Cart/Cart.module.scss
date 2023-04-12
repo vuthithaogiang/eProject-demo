@@ -35,7 +35,7 @@
     margin-left: 60px;
 }
 
-.container-cart .checkout .action-btns {
+.checkout .action-btns {
     display: flex;
     margin: 12px 0 0;
     gap: 10px;
@@ -44,7 +44,7 @@
     font-size: 1.4rem;
     font-weight: 500;
 }
-.container-cart .checkout .action-btns button {
+.checkout .action-btns button {
     width: 150px;
     background-color: #eaf6ff;
     padding: 12px 0px;
@@ -155,9 +155,6 @@
     color: #222;
 }
 
-.wrapper .checkout {
-}
-
 .wrapper .checkout .note p {
     font-size: 1.3rem;
     margin-bottom: 8px;
@@ -260,4 +257,68 @@
 .wrapper-pay {
     position: relative;
     z-index: 7;
+}
+
+.step {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 80px;
+}
+
+.step span.active {
+    color: #fff;
+    background-color: #222;
+}
+
+.step div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step span {
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #222;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.items-total div.coupon {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #111;
+    border-radius: 60px;
+    margin-top: 12px;
+}
+
+.items-total input {
+    width: 100%;
+    height: 100%;
+    padding-left: 12px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+
+.items-total input::placeholder {
+    color: var(--primary-color);
+    font-family: 'Sen', sans-serif;
+}
+
+.items-total div.coupon button {
+    font-size: 1.4rem;
+    font-family: 'Sen', sans-serif;
+    padding: 0 20px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    background-color: #111;
+    color: #fff;
+    cursor: pointer;
 }

@@ -1,4 +1,15 @@
-import { faCircleInfo, faClock, faGift, faHand, faTag, faTruck } from '@fortawesome/free-solid-svg-icons';
+import {
+    faArrowLeft,
+    faArrowRight,
+    faCircleCheck,
+    faCircleInfo,
+    faClock,
+    faGift,
+    faHand,
+    faHeart,
+    faTag,
+    faTruck,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import React, { useContext } from 'react';
@@ -9,6 +20,8 @@ import { CartContext } from '~/contexts/CartContext';
 import styles from './DetailProduct.module.scss';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +34,26 @@ function Details({ product }) {
     const [selectedColor, setSelectedColor] = useState(product.colors[0]);
     const [infoTitle, setInfoTitle] = useState(product.infos[0].title);
     const slideRef = useRef();
+    const [helpful, setHelpful] = useState(false);
+    const responsive = {
+        superLargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 3000 },
+            items: 4,
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 4,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 3,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 3,
+        },
+    };
 
     function plusSlides(n) {
         setSlideIndex((prev) => prev + n);
@@ -415,6 +448,253 @@ function Details({ product }) {
                         )}
                     </div>
                 ))}
+            </section>
+
+            <section className={cx('review')}>
+                {/* header */}
+                <header>
+                    <div className={cx('stats')}>
+                        <span>1,1908 reviews</span>
+                        <span className={cx('star')}>
+                            <img src={images.starIcon} alt="star" />
+                            <img src={images.starIcon} alt="star" />
+                            <img src={images.starIcon} alt="star" />
+                            <img src={images.starIcon} alt="star" />
+                            <img src={images.starIcon} alt="star" />
+                        </span>
+                    </div>
+                    <p>Sort by: Suggessted</p>
+                </header>
+
+                {/* item */}
+                <div className={cx('list-review')}>
+                    {/* item 1 */}
+                    <div className={cx('item')}>
+                        <div className={cx('verified-buyer')}>
+                            <span className={cx('star')}>
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                            </span>
+                            <div>
+                                <FontAwesomeIcon icon={faCircleCheck} />
+                                <span>Verified buyer</span>
+                            </div>
+                        </div>
+
+                        <div className={cx('wrapper')}>
+                            <div className={cx('content')}>
+                                <p>
+                                    I purchased 3 versions of this and I'm so pleased with the outcome. The colors are
+                                    vibrant and they will make a great display. Arrived safely and packaged well --thank
+                                    you!
+                                </p>
+
+                                <HeadlessTippy
+                                    interactive
+                                    render={(attrs) => (
+                                        <PopperWrapper>
+                                            <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                {product.name} - {product.desc_more}
+                                            </div>
+                                        </PopperWrapper>
+                                    )}
+                                    placement="right-start"
+                                >
+                                    <p className={cx('description')}>
+                                        <span>Purchased item: </span>
+                                        {product.name} - {product.desc_more}
+                                    </p>
+                                </HeadlessTippy>
+
+                                <div className={cx('info-buyer')}>
+                                    <img
+                                        className={cx('avatar')}
+                                        src="https://images.pexels.com/photos/458517/pexels-photo-458517.jpeg?h=350&auto=compress&cs=tinysrgb"
+                                        alt=""
+                                    />
+                                    <p>CaroleT</p>
+                                    <p>Feb 15, 2023</p>
+                                </div>
+                                <div onClick={() => setHelpful(true)} className={cx('help-ful')}>
+                                    <FontAwesomeIcon
+                                        icon={faHeart}
+                                        className={helpful === true ? cx('active') : cx('')}
+                                    />
+                                    <span>Helpful?</span>
+                                </div>
+                            </div>
+
+                            <div className={cx('image')}>
+                                <img src={images.product1} alt="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* item 2 */}
+                    <div className={cx('item')}>
+                        <div className={cx('verified-buyer')}>
+                            <span className={cx('star')}>
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                            </span>
+                            <div>
+                                <FontAwesomeIcon icon={faCircleCheck} />
+                                <span>Verified buyer</span>
+                            </div>
+                        </div>
+
+                        <div className={cx('wrapper')}>
+                            <div className={cx('content')}>
+                                <p>
+                                    I purchased 3 versions of this and I'm so pleased with the outcome. The colors are
+                                    vibrant and they will make a great display. Arrived safely and packaged well --thank
+                                    you!
+                                </p>
+
+                                <HeadlessTippy
+                                    interactive
+                                    render={(attrs) => (
+                                        <PopperWrapper>
+                                            <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                {product.name} - {product.desc_more}
+                                            </div>
+                                        </PopperWrapper>
+                                    )}
+                                    placement="right-start"
+                                >
+                                    <p className={cx('description')}>
+                                        <span>Purchased item: </span>
+                                        {product.name} - {product.desc_more}
+                                    </p>
+                                </HeadlessTippy>
+
+                                <div className={cx('info-buyer')}>
+                                    <img
+                                        className={cx('avatar')}
+                                        src="https://images.pexels.com/photos/458517/pexels-photo-458517.jpeg?h=350&auto=compress&cs=tinysrgb"
+                                        alt=""
+                                    />
+                                    <p>CaroleT</p>
+                                    <p>Feb 15, 2023</p>
+                                </div>
+                                <div onClick={() => setHelpful(true)} className={cx('help-ful')}>
+                                    <FontAwesomeIcon
+                                        icon={faHeart}
+                                        className={helpful === true ? cx('active') : cx('')}
+                                    />
+                                    <span>Helpful?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* item 3 */}
+                    <div className={cx('item')}>
+                        <div className={cx('verified-buyer')}>
+                            <span className={cx('star')}>
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                                <img src={images.starIcon} alt="star" />
+                            </span>
+                            <div>
+                                <FontAwesomeIcon icon={faCircleCheck} />
+                                <span>Verified buyer</span>
+                            </div>
+                        </div>
+
+                        <div className={cx('wrapper')}>
+                            <div className={cx('content')}>
+                                <p>
+                                    I purchased 3 versions of this and I'm so pleased with the outcome. The colors are
+                                    vibrant and they will make a great display. Arrived safely and packaged well --thank
+                                    you!
+                                </p>
+
+                                <HeadlessTippy
+                                    interactive
+                                    render={(attrs) => (
+                                        <PopperWrapper>
+                                            <div className={cx('content-inner')} tabIndex="-1" {...attrs}>
+                                                {product.name} - {product.desc_more}
+                                            </div>
+                                        </PopperWrapper>
+                                    )}
+                                    placement="right-start"
+                                >
+                                    <p className={cx('description')}>
+                                        <span>Purchased item: </span>
+                                        {product.name} - {product.desc_more}
+                                    </p>
+                                </HeadlessTippy>
+
+                                <div className={cx('info-buyer')}>
+                                    <img
+                                        className={cx('avatar')}
+                                        src="https://i.etsystatic.com/iusa/6db9e1/84503231/iusa_75x75.84503231_c4se.jpg?version=0
+                                        "
+                                        alt=""
+                                    />
+                                    <p>CaroleT</p>
+                                    <p>Feb 15, 2023</p>
+                                </div>
+                                <div onClick={() => setHelpful(true)} className={cx('help-ful')}>
+                                    <FontAwesomeIcon
+                                        icon={faHeart}
+                                        className={helpful === true ? cx('active') : cx('')}
+                                    />
+                                    <span>Helpful?</span>
+                                </div>
+                            </div>
+
+                            <div className={cx('image')}>
+                                <img
+                                    src="https://i.pinimg.com/736x/70/80/be/7080be919539a80e48221dd864e4cfac.jpg"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={cx('naviagte')}>
+                    <span>
+                        <FontAwesomeIcon icon={faArrowLeft} />
+                    </span>
+                    <span className={cx('active')}>1</span>
+                    <span>2</span>
+                    ...
+                    <span>45</span>
+                    <span>
+                        <FontAwesomeIcon icon={faArrowRight} />
+                    </span>
+                </div>
+
+                <div className={cx('list-photos')}>
+                    <p>Photos from Reviews</p>
+                    <Carousel
+                        responsive={responsive}
+                        containerClass={cx('carousel-container')}
+                        showDots={false}
+                        dotListClass={cx('style-dots')}
+                    >
+                        <img src={images.product1} alt="" />
+                        <img src={images.product3} alt="" />
+                        <img src={images.product13} alt="" />
+                        <img src={images.product7} alt="" />
+                        <img src={images.product4} alt="" />
+                        <img src={images.product14} alt="" />
+                        <img src={images.product12} alt="" />
+                        <img src={images.product11} alt="" />
+                    </Carousel>
+                </div>
             </section>
         </React.Fragment>
     );

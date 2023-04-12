@@ -526,3 +526,199 @@
     padding-bottom: 8px;
     padding-right: 6px;
 }
+
+// Review
+
+.star img {
+    width: 14px;
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.review header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.review header .stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.review header .stats > span {
+    color: #222;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.review header p {
+    color: #222;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.review .list-review {
+    display: flex;
+    flex-direction: column;
+}
+
+.review .list-review .item {
+}
+
+.list-review .item > .verified-buyer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+
+.list-review .item > .verified-buyer div svg {
+    font-size: 1.2rem;
+    margin-right: 4px;
+    color: #258635;
+}
+
+.list-review .item > .verified-buyer div span {
+    font-size: 1.2rem;
+    color: #258635;
+}
+
+.list-review .item .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-review .item .wrapper .content {
+    width: 75%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.list-review .item .wrapper .content p:first-child {
+    color: #111;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.list-review .item .wrapper .content .info-buyer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.list-review .item .wrapper .content .info-buyer .avatar {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.list-review .item .wrapper .content .info-buyer p {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.list-review .item .wrapper .content .description {
+    margin-bottom: 10px;
+    width: 60%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1.3rem;
+    // font-family: 'Sen', sans-serif;
+}
+
+.list-review .item .wrapper .content .description span {
+    font-weight: 600;
+    border-bottom: 1px dotted #ccc;
+}
+
+.list-review .item .wrapper .image {
+    width: 20%;
+}
+
+.list-review .item .wrapper .image img {
+    display: inline-flex;
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+    border-radius: 6px;
+}
+
+.list-review .item .help-ful {
+    margin: 10px 0;
+    font-size: 1.4rem;
+    cursor: pointer;
+    width: 110px;
+    padding: 8px 12px;
+}
+
+.list-review .item .help-ful:hover {
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+.list-review .item .help-ful svg {
+    margin-right: 6px;
+}
+
+.list-review .item .help-ful svg.active {
+    color: #258635;
+}
+
+.list-review .item .help-ful span {
+    color: #111;
+    font-weight: 600;
+}
+
+.review .naviagte {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.review .naviagte span {
+    font-size: 1.3rem;
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.review .naviagte span.active {
+    border: 2px solid #111;
+}
+
+.list-photos > p {
+    color: #222;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.list-photos .carousel-container {
+    margin-top: 15px;
+}
+
+.list-photos .carousel-container img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+}

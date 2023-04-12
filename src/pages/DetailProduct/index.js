@@ -33,9 +33,9 @@ function DetailProduct() {
                     <Details key={index} product={info} />
                 ))}
             </div>
-            {/* <div className={cx('suggested')}>
+            <div className={cx('suggested')}>
                 <AllProduct />
-            </div> */}
+            </div>
         </>
     );
 }

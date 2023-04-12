@@ -8,13 +8,14 @@ import CartItem from './CartItem';
 import images from '~/assets/images';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesRight, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import React, { useState } from 'react';
 import axios from '~/api/axios';
 
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -69,6 +70,14 @@ function Cart() {
     const [orderId, setOrderId] = useState('');
     const [error, setError] = useState(null);
     const { cartItems, getTotalCartAmount, paySuccess, setPaySuccess } = useContext(CartContext);
+    const [type, setType] = useState('');
+
+    useEffect(() => {
+        setType('cart');
+        if (paySuccess === true) {
+            setType('');
+        }
+    }, [paySuccess]);
     const totalAmount = getTotalCartAmount();
     let amountValue = totalAmount + 113;
 
@@ -111,14 +120,14 @@ function Cart() {
     }
 
     return (
-        <>
+        <div>
             <div className={cx('header-cart')}>
                 <img src={images.hand} alt="" />
                 <div className={cx('content')}>
                     <p>
                         <strong>Buy confidently </strong>
-                        with Etsy's Purchase Protection program for buyers, get a full refund in the rare case your item
-                        doesn't arrive, arrives damaged, or isn't as described.{' '}
+                        with Mirrors's Purchase Protection program for buyers, get a full refund in the rare case your
+                        item doesn't arrive, arrives damaged, or isn't as described.{' '}
                         <Link to="/purchase-protection">See eligibility</Link>
                     </p>
                 </div>
@@ -127,6 +136,23 @@ function Cart() {
             {totalAmount > 0 ? (
                 <>
                     <>
+                        <div className={cx('step')}>
+                            <div>
+                                <span className={type === 'cart' ? cx('active') : cx('')}>1</span>
+                                <p>Cart</p>
+                            </div>
+                            <FontAwesomeIcon icon={faAnglesRight} />
+                            <div>
+                                <span className={type === 'checkout' ? cx('active') : cx('')}>2</span>
+                                <p>Checkout</p>
+                            </div>
+                            <FontAwesomeIcon icon={faAnglesRight} />
+
+                            <div>
+                                <span className={paySuccess === true ? cx('active') : cx('')}>3</span>
+                                <p>Complete</p>
+                            </div>
+                        </div>
                         <div className={cx('wrapper')}>
                             <div className={cx('container-cart')}>
                                 <div className={cx('title')}>{totalAmount > 0 && <h1>Your cart items</h1>}</div>
@@ -137,21 +163,6 @@ function Cart() {
                                         }
                                     })}
                                 </div>
-
-                                {totalAmount > 0 && (
-                                    <div className={cx('checkout')}>
-                                        <p>Subtotal: ${totalAmount}</p>
-                                        <div className={cx('action-btns')}>
-                                            <button
-                                                onClick={() => navigate('/products/All')}
-                                                className={cx('continue')}
-                                            >
-                                                Continue Shopping
-                                            </button>
-                                            <button className={cx('buy-now')}>Checkout</button>
-                                        </div>
-                                    </div>
-                                )}
                             </div>
 
                             <div className={cx('checkout')}>
@@ -204,9 +215,27 @@ function Cart() {
                                     <h3>
                                         Total (items): <span>${totalAmount + 113}</span>
                                     </h3>
+
+                                    {type === 'checkout' && (
+                                        <div className={cx('coupon')}>
+                                            <input type="text" placeholder="Coupon Code" />
+                                            <button>Add</button>
+                                        </div>
+                                    )}
                                 </div>
 
-                                {paySuccess === false || orderId === '' ? (
+                                {totalAmount > 0 && type === 'cart' && (
+                                    <div className={cx('action-btns')}>
+                                        <button onClick={() => navigate('/products/All')} className={cx('continue')}>
+                                            Continue Shopping
+                                        </button>
+                                        <button className={cx('buy-now')} onClick={() => setType('checkout')}>
+                                            Checkout
+                                        </button>
+                                    </div>
+                                )}
+
+                                {type === 'checkout' && paySuccess === false && (
                                     <div className={cx('wrapper-pay')}>
                                         <PayPalScriptProvider
                                             options={{
@@ -258,7 +287,8 @@ function Cart() {
                                             />
                                         </PayPalScriptProvider>
                                     </div>
-                                ) : (
+                                )}
+                                {paySuccess === true && (
                                     <div className={cx('pay-success')}>
                                         <h1>
                                             Thanks you for order. <br />
@@ -277,7 +307,7 @@ function Cart() {
                     <h3 className={cx('no-item')}> Your cart is empty!</h3>
                 </>
             )}
-        </>
+        </div>
     );
 }
 

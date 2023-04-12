@@ -10,7 +10,10 @@ function OurBlog({ className }) {
             <div className={cx('body')}>
                 <div className={cx('content')}>
                     <h1 className={cx('heading')}>Our blog</h1>
-                    <p className={cx('desc')}>Read our regular travel blog the latest update of tour and travel</p>
+                    <p className={cx('desc')}>
+                        I embarked on a new journey of collecting and recording the endless stream of memories and
+                        moments of our life. In words, and images.
+                    </p>
                 </div>
             </div>
             <ListBlogItem />

@@ -34,7 +34,7 @@ function Item({ data }) {
                     <span className={cx('price')}>
                         ${data.price - (data.price * data.sale) / 100} {data.sale > 0 && <del>${data.price}</del>}
                     </span>
-                    <Button rounded>Shop Now</Button>
+                    <Button rounded>View Details</Button>
                 </div>
             </div>
         </motion.div>
