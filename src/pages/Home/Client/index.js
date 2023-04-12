@@ -1,9 +1,11 @@
 import classNames from 'classnames/bind';
 import styles from './Client.module.scss';
 import images from '~/assets/images';
+import { useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function Client() {
+    const navigate = useNavigate();
     return (
         <div className={cx('wrapper')}>
             <div className={cx('body')}>
@@ -19,7 +21,9 @@ function Client() {
                 </div>
 
                 <div className={cx('row-desc')}>
-                    <p className={cx('desc')}>More than 30+ stores trust Mirrors</p>
+                    <p onClick={() => navigate('/about-us')} className={cx('desc')}>
+                        More than 10+ stores trust Mirrors
+                    </p>
                     <p className={cx('desc')}>5 Star Ratings (1k+ Review)</p>
                 </div>
 

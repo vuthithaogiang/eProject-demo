@@ -45,6 +45,15 @@ const images = {
     trend: require('~/assets/images/trend.svg').default,
     hand: require('~/assets/images/hand.svg').default,
     desc: require('~/assets/images/desc.png'),
+    human: require('~/assets/images/human.svg').default,
+    staff1: require('~/assets/images/staff-01.png'),
+    staff2: require('~/assets/images/staff-02.png'),
+    staff3: require('~/assets/images/staff-03.png'),
+    staff4: require('~/assets/images/staff-04.png'),
+    sraffDeco1: require('~/assets/images/staff-deco-01.svg').default,
+    sraffDeco2: require('~/assets/images/staff-deco-02.svg').default,
+    sraffDeco3: require('~/assets/images/staff-deco-03.svg').default,
+    sraffDeco4: require('~/assets/images/staff-deco-04.svg').default,
 };
 
 export default images;

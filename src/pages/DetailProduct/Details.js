@@ -685,14 +685,14 @@ function Details({ product }) {
                         showDots={false}
                         dotListClass={cx('style-dots')}
                     >
-                        <img src={images.product1} alt="" />
-                        <img src={images.product3} alt="" />
-                        <img src={images.product13} alt="" />
-                        <img src={images.product7} alt="" />
-                        <img src={images.product4} alt="" />
-                        <img src={images.product14} alt="" />
+                        <img src={images.product10} alt="" />
                         <img src={images.product12} alt="" />
+                        <img src={images.product18} alt="" />
+                        <img src={images.product7} alt="" />
+                        <img src={images.product16} alt="" />
+                        <img src={images.product15} alt="" />
                         <img src={images.product11} alt="" />
+                        <img src={images.product8} alt="" />
                     </Carousel>
                 </div>
             </section>

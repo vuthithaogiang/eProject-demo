@@ -9,6 +9,7 @@ import FeedbackForm from '~/pages/Feedback';
 import PurchaseProtection from '~/pages/PurchaseProtection';
 import OrderDetails from '~/pages/OrderDetails';
 import Blog from '~/pages/Blog';
+import AboutUs from '~/pages/AboutUs';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/products/:type', component: Products },
@@ -42,6 +43,10 @@ const publicRoutes = [
     {
         path: '/blog/item',
         component: Blog,
+    },
+    {
+        path: '/about-us',
+        component: AboutUs,
     },
 ];
 

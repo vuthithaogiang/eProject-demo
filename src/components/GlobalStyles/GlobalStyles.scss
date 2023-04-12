@@ -85,3 +85,26 @@ html ::-webkit-scrollbar-track {
     border-radius: 0px;
     background-color: rgba(0, 0, 0, 0);
 }
+
+//locations
+.leaflet-container {
+    margin-top: 10px;
+    height: 80vh;
+    width: 1170px;
+    max-width: calc(100% - 24px);
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 7;
+}
+
+.cluster-icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: var(--header-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}

@@ -10,11 +10,10 @@ import {
     faCircleQuestion,
     faHome,
     faUser,
-    faCoins,
     faGear,
     faSignOut,
     faBars,
-    faTag,
+    faCircleInfo,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -94,9 +93,9 @@ const userMenu = [
         to: '/setting',
     },
     {
-        icon: <FontAwesomeIcon icon={faCoins} />,
-        title: 'Get coins',
-        to: '/coins',
+        icon: <FontAwesomeIcon icon={faCircleInfo} />,
+        title: 'About Us',
+        to: '/about-us',
     },
 
     ...MENU_ITEMS,
