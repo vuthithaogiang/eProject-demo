@@ -47,8 +47,13 @@
     padding-bottom: 16px;
 }
 
+.team {
+    background-color: #d7e6f5;
+    // padding: 70px 0;
+}
+
 .team .staff {
-    padding: 130px 0;
+    padding: 70px 0;
 }
 
 .staff > p,
@@ -169,7 +174,7 @@
 }
 
 .leaflet-container h2 {
-    margin-top: -60px;
+    margin-top: 70px;
     text-align: center;
     font-size: 4.5rem;
 
@@ -177,4 +182,216 @@
     color: #222;
     font-weight: 400;
     margin-bottom: 20px;
+}
+
+.latest-news {
+    background: #f9ebe5;
+    margin-top: 70px;
+    padding-top: 35px;
+    padding-bottom: 70px;
+}
+
+.latest-news header {
+    width: 82%;
+}
+
+.latest-news header > div {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: 30px;
+    margin-bottom: 14px;
+}
+
+.latest-news header > div h3 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.latest-news header > div span {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.latest-news header p > span {
+    color: #f56400;
+    cursor: pointer;
+}
+
+.latest-news header p {
+    font-size: 1.4rem;
+    margin-bottom: 26px;
+    color: #222;
+}
+
+.latest-news .news-list {
+    display: flex;
+    gap: 40px;
+}
+
+.news-list .news-item {
+    width: 383px;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.news-list .news-item img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.news-list .news-item div {
+    padding: 35px 35px 50px 35px;
+}
+
+.news-list .news-item div > p {
+    font-size: 1.6rem;
+    color: #222;
+    line-height: 24px;
+    margin-bottom: 15px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.news-list .news-item div p.date {
+    font-size: 1.4rem;
+    color: #595959;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.commitment {
+    margin-top: 60px;
+}
+
+.commitment .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commitment .container .header {
+    width: 50%;
+}
+
+.commitment .container .video {
+    width: 50%;
+    clip-path: inset(1px 1px);
+}
+
+.commitment .container .header h3 {
+    font-size: 4rem;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    color: #222;
+    font-weight: 400;
+}
+
+.commitment .container .header p {
+    color: #222;
+    font-size: 1.6rem;
+    padding-top: 10px;
+}
+
+.commitment .purchase-protection {
+    display: flex;
+    margin: 30px 15%;
+    gap: 20px;
+    background-color: #d7e6f5;
+    border-radius: 8px;
+    padding: 8px 8px;
+}
+
+.commitment .purchase-protection img {
+    width: 46px;
+    height: 41px;
+    object-fit: cover;
+}
+
+.commitment .purchase-protection .content p {
+    font-size: 1.3rem;
+    line-height: 18px;
+}
+
+.commitment .purchase-protection .content p a {
+    text-decoration: underline;
+    color: #222;
+}
+
+.additional {
+    margin-top: 50px;
+}
+
+.additional .container > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.additional .container .content {
+    width: 45%;
+}
+
+.additional .container .video {
+    width: 50%;
+}
+
+.additional .container .video video {
+    width: 100%;
+    height: 460px;
+
+    clip-path: inset(1px 1px);
+}
+
+.additional .content h3 {
+    font-size: 3rem;
+    line-height: 1.3;
+    font-weight: 400;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.additional .content p {
+    color: #222;
+}
+
+.additional .content button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.5;
+    min-height: 48px;
+    min-width: 48px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #111;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.additional .content div > span {
+    font-size: 1.1rem;
+    color: #222;
+    font-weight: 600;
+}
+
+.additional .content div > p {
+    font-size: 1.1rem;
+    margin-top: 6px;
 }
